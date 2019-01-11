@@ -289,7 +289,7 @@ Before you start, make sure you read the README.txt in the same
 directory as this notebook.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}1}]:} \PY{c+c1}{\PYZsh{} All Import Statements Defined Here}
+{\color{incolor}In [{\color{incolor}2}]:} \PY{c+c1}{\PYZsh{} All Import Statements Defined Here}
         \PY{c+c1}{\PYZsh{} Note: Do not add to this list.}
         \PY{c+c1}{\PYZsh{} All the dependencies you need, can be installed by running .}
         \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
@@ -472,7 +472,7 @@ lowercases words. You do \textbf{not} have perform any other kind of
 pre-processing.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}2}]:} \PY{k}{def} \PY{n+nf}{read\PYZus{}corpus}\PY{p}{(}\PY{n}{category}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{crude}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+{\color{incolor}In [{\color{incolor}3}]:} \PY{k}{def} \PY{n+nf}{read\PYZus{}corpus}\PY{p}{(}\PY{n}{category}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{crude}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Read files from the specified Reuter\PYZsq{}s category.}
         \PY{l+s+sd}{        Params:}
         \PY{l+s+sd}{            category (string): category name}
@@ -487,7 +487,7 @@ pre-processing.
     Let's have a look what these documents are like\ldots{}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}3}]:} \PY{n}{reuters\PYZus{}corpus} \PY{o}{=} \PY{n}{read\PYZus{}corpus}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}4}]:} \PY{n}{reuters\PYZus{}corpus} \PY{o}{=} \PY{n}{read\PYZus{}corpus}\PY{p}{(}\PY{p}{)}
         \PY{n}{pprint}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{reuters\PYZus{}corpus}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,} \PY{n}{compact}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{width}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}
 \end{Verbatim}
 
@@ -644,7 +644,7 @@ You may find it useful to use
 remove duplicate words.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}4}]:} \PY{k}{def} \PY{n+nf}{distinct\PYZus{}words}\PY{p}{(}\PY{n}{corpus}\PY{p}{)}\PY{p}{:}
+{\color{incolor}In [{\color{incolor}5}]:} \PY{k}{def} \PY{n+nf}{distinct\PYZus{}words}\PY{p}{(}\PY{n}{corpus}\PY{p}{)}\PY{p}{:}
             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Determine a list of distinct words for the corpus.}
         \PY{l+s+sd}{        Params:}
         \PY{l+s+sd}{            corpus (list of list of strings): corpus of documents}
@@ -670,7 +670,7 @@ remove duplicate words.
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}5}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+{\color{incolor}In [{\color{incolor}6}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
         \PY{c+c1}{\PYZsh{} Run this sanity check}
         \PY{c+c1}{\PYZsh{} Note that this not an exhaustive check for correctness.}
         \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
@@ -717,7 +717,7 @@ half of this cs231n
 tutorial}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}6}]:} \PY{k}{def} \PY{n+nf}{compute\PYZus{}co\PYZus{}occurrence\PYZus{}matrix}\PY{p}{(}\PY{n}{corpus}\PY{p}{,} \PY{n}{window\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{:}
+{\color{incolor}In [{\color{incolor}7}]:} \PY{k}{def} \PY{n+nf}{compute\PYZus{}co\PYZus{}occurrence\PYZus{}matrix}\PY{p}{(}\PY{n}{corpus}\PY{p}{,} \PY{n}{window\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{:}
             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Compute co\PYZhy{}occurrence matrix for the given corpus and window\PYZus{}size (default of 4).}
         \PY{l+s+sd}{    }
         \PY{l+s+sd}{        Note: Each word in a document should be at the center of a window. Words near edges will have a smaller}
@@ -767,7 +767,7 @@ tutorial}.
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}7}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+{\color{incolor}In [{\color{incolor}8}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
         \PY{c+c1}{\PYZsh{} Run this sanity check}
         \PY{c+c1}{\PYZsh{} Note that this is not an exhaustive check for correctness.}
         \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
@@ -841,7 +841,7 @@ SVD. So please use
 \href{https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html}{sklearn.decomposition.TruncatedSVD}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}8}]:} \PY{k}{def} \PY{n+nf}{reduce\PYZus{}to\PYZus{}k\PYZus{}dim}\PY{p}{(}\PY{n}{M}\PY{p}{,} \PY{n}{k}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{:}
+{\color{incolor}In [{\color{incolor}9}]:} \PY{k}{def} \PY{n+nf}{reduce\PYZus{}to\PYZus{}k\PYZus{}dim}\PY{p}{(}\PY{n}{M}\PY{p}{,} \PY{n}{k}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{:}
             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Reduce a co\PYZhy{}occurence count matrix of dimensionality (num\PYZus{}corpus\PYZus{}words, num\PYZus{}corpus\PYZus{}words)}
         \PY{l+s+sd}{        to a matrix of dimensionality (num\PYZus{}corpus\PYZus{}words, k) using the following SVD function from Scikit\PYZhy{}Learn:}
         \PY{l+s+sd}{            \PYZhy{} http://scikit\PYZhy{}learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html}
@@ -871,25 +871,25 @@ SVD. So please use
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}9}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
-        \PY{c+c1}{\PYZsh{} Run this sanity check}
-        \PY{c+c1}{\PYZsh{} Note that this not an exhaustive check for correctness }
-        \PY{c+c1}{\PYZsh{} In fact we only check that your M\PYZus{}reduced has the right dimensions.}
-        \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
-        
-        \PY{c+c1}{\PYZsh{} Define toy corpus and run student code}
-        \PY{n}{test\PYZus{}corpus} \PY{o}{=} \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{START All that glitters isn}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{t gold END}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{START All}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{s well that ends well END}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{]}
-        \PY{n}{M\PYZus{}test}\PY{p}{,} \PY{n}{word2Ind\PYZus{}test} \PY{o}{=} \PY{n}{compute\PYZus{}co\PYZus{}occurrence\PYZus{}matrix}\PY{p}{(}\PY{n}{test\PYZus{}corpus}\PY{p}{,} \PY{n}{window\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
-        \PY{n}{M\PYZus{}test\PYZus{}reduced} \PY{o}{=} \PY{n}{reduce\PYZus{}to\PYZus{}k\PYZus{}dim}\PY{p}{(}\PY{n}{M\PYZus{}test}\PY{p}{,} \PY{n}{k}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
-        
-        \PY{c+c1}{\PYZsh{} Test proper dimensions}
-        \PY{k}{assert} \PY{p}{(}\PY{n}{M\PYZus{}test\PYZus{}reduced}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{M\PYZus{}reduced has }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{ rows; should have }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{M\PYZus{}test\PYZus{}reduced}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}
-        \PY{k}{assert} \PY{p}{(}\PY{n}{M\PYZus{}test\PYZus{}reduced}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{M\PYZus{}reduced has }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{ columns; should have }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{M\PYZus{}test\PYZus{}reduced}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}
-        
-        \PY{c+c1}{\PYZsh{} Print Success}
-        \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}} \PY{o}{*} \PY{l+m+mi}{80}\PY{p}{)}
-        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Passed All Tests!}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-        \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}} \PY{o}{*} \PY{l+m+mi}{80}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}10}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         \PY{c+c1}{\PYZsh{} Run this sanity check}
+         \PY{c+c1}{\PYZsh{} Note that this not an exhaustive check for correctness }
+         \PY{c+c1}{\PYZsh{} In fact we only check that your M\PYZus{}reduced has the right dimensions.}
+         \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+         
+         \PY{c+c1}{\PYZsh{} Define toy corpus and run student code}
+         \PY{n}{test\PYZus{}corpus} \PY{o}{=} \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{START All that glitters isn}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{t gold END}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{START All}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{s well that ends well END}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{]}
+         \PY{n}{M\PYZus{}test}\PY{p}{,} \PY{n}{word2Ind\PYZus{}test} \PY{o}{=} \PY{n}{compute\PYZus{}co\PYZus{}occurrence\PYZus{}matrix}\PY{p}{(}\PY{n}{test\PYZus{}corpus}\PY{p}{,} \PY{n}{window\PYZus{}size}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+         \PY{n}{M\PYZus{}test\PYZus{}reduced} \PY{o}{=} \PY{n}{reduce\PYZus{}to\PYZus{}k\PYZus{}dim}\PY{p}{(}\PY{n}{M\PYZus{}test}\PY{p}{,} \PY{n}{k}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} Test proper dimensions}
+         \PY{k}{assert} \PY{p}{(}\PY{n}{M\PYZus{}test\PYZus{}reduced}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{M\PYZus{}reduced has }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{ rows; should have }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{M\PYZus{}test\PYZus{}reduced}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}
+         \PY{k}{assert} \PY{p}{(}\PY{n}{M\PYZus{}test\PYZus{}reduced}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{M\PYZus{}reduced has }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{ columns; should have }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{M\PYZus{}test\PYZus{}reduced}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} Print Success}
+         \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}} \PY{o}{*} \PY{l+m+mi}{80}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Passed All Tests!}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}}\PY{l+s+s2}{\PYZdq{}} \PY{o}{*} \PY{l+m+mi}{80}\PY{p}{)}
 \end{Verbatim}
 
 
@@ -917,7 +917,7 @@ gallery}, find a plot that looks somewhat like what you want, and adapt
 the code they give.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}10}]:} \PY{k}{def} \PY{n+nf}{plot\PYZus{}embeddings}\PY{p}{(}\PY{n}{M\PYZus{}reduced}\PY{p}{,} \PY{n}{word2Ind}\PY{p}{,} \PY{n}{words}\PY{p}{)}\PY{p}{:}
+{\color{incolor}In [{\color{incolor}11}]:} \PY{k}{def} \PY{n+nf}{plot\PYZus{}embeddings}\PY{p}{(}\PY{n}{M\PYZus{}reduced}\PY{p}{,} \PY{n}{word2Ind}\PY{p}{,} \PY{n}{words}\PY{p}{)}\PY{p}{:}
              \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Plot in a scatterplot the embeddings of the words specified in the list \PYZdq{}words\PYZdq{}.}
          \PY{l+s+sd}{        NOTE: do not plot all the words listed in M\PYZus{}reduced / word2Ind.}
          \PY{l+s+sd}{        Include a label next to each point.}
@@ -948,7 +948,7 @@ the code they give.
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}11}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+{\color{incolor}In [{\color{incolor}12}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
          \PY{c+c1}{\PYZsh{} Run this sanity check}
          \PY{c+c1}{\PYZsh{} Note that this not an exhaustive check for correctness.}
          \PY{c+c1}{\PYZsh{} The plot produced should look like the \PYZdq{}test solution plot\PYZdq{} depicted below. }
@@ -1006,7 +1006,7 @@ What doesn't cluster together that you might think should have?
 abbreviation in crude oil topic articles.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}12}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+{\color{incolor}In [{\color{incolor}13}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
          \PY{c+c1}{\PYZsh{} Run This Cell to Produce Your Plot}
          \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
          \PY{n}{reuters\PYZus{}corpus} \PY{o}{=} \PY{n}{read\PYZus{}corpus}\PY{p}{(}\PY{p}{)}
@@ -1068,7 +1068,7 @@ Then run the following cells to load the word2vec vectors into memory.
 \textbf{Note}: This might take several minutes.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}13}]:} \PY{k}{def} \PY{n+nf}{load\PYZus{}word2vec}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+{\color{incolor}In [{\color{incolor}14}]:} \PY{k}{def} \PY{n+nf}{load\PYZus{}word2vec}\PY{p}{(}\PY{p}{)}\PY{p}{:}
              \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Load Word2Vec Vectors}
          \PY{l+s+sd}{        Return:}
          \PY{l+s+sd}{            wv\PYZus{}from\PYZus{}bin: All 3 million embeddings, each lengh 300}
@@ -1082,7 +1082,7 @@ Then run the following cells to load the word2vec vectors into memory.
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}14}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+{\color{incolor}In [{\color{incolor}15}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
          \PY{c+c1}{\PYZsh{} Run Cell to Load Word Vectors}
          \PY{c+c1}{\PYZsh{} Note: This may take several minutes}
          \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
@@ -1121,7 +1121,7 @@ co-occurrence matrix. Run the following cells to:
 \end{enumerate}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}15}]:} \PY{k}{def} \PY{n+nf}{get\PYZus{}matrix\PYZus{}of\PYZus{}vectors}\PY{p}{(}\PY{n}{wv\PYZus{}from\PYZus{}bin}\PY{p}{,} \PY{n}{required\PYZus{}words}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{barrels}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bpd}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ecuador}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{energy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{industry}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{kuwait}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{oil}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{output}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{petroleum}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{venezuela}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+{\color{incolor}In [{\color{incolor}16}]:} \PY{k}{def} \PY{n+nf}{get\PYZus{}matrix\PYZus{}of\PYZus{}vectors}\PY{p}{(}\PY{n}{wv\PYZus{}from\PYZus{}bin}\PY{p}{,} \PY{n}{required\PYZus{}words}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{barrels}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bpd}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ecuador}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{energy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{industry}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{kuwait}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{oil}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{output}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{petroleum}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{venezuela}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{:}
              \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Put the word2vec vectors into a matrix M.}
          \PY{l+s+sd}{        Param:}
          \PY{l+s+sd}{            wv\PYZus{}from\PYZus{}bin: KeyedVectors object; the 3 million word2vec vectors loaded from file}
@@ -1159,7 +1159,7 @@ co-occurrence matrix. Run the following cells to:
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}16}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+{\color{incolor}In [{\color{incolor}17}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
          \PY{c+c1}{\PYZsh{} Run Cell to Reduce 300\PYZhy{}Dimensinal Word Embeddings to k Dimensions}
          \PY{c+c1}{\PYZsh{} Note: This may take several minutes}
          \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
@@ -1188,7 +1188,7 @@ cluster together that you might think should have? How is the plot
 different from the one generated earlier from the co-occurrence matrix?
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}17}]:} \PY{n}{words} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{barrels}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bpd}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ecuador}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{energy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{industry}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{kuwait}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{oil}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{output}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{petroleum}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{venezuela}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+{\color{incolor}In [{\color{incolor}18}]:} \PY{n}{words} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{barrels}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bpd}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ecuador}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{energy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{industry}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{kuwait}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{oil}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{output}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{petroleum}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{venezuela}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
          \PY{n}{plot\PYZus{}embeddings}\PY{p}{(}\PY{n}{M\PYZus{}reduced}\PY{p}{,} \PY{n}{word2Ind}\PY{p}{,} \PY{n}{words}\PY{p}{)}
 \end{Verbatim}
 
@@ -1258,7 +1258,7 @@ assistance please check the
 documentation}}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}18}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+{\color{incolor}In [{\color{incolor}19}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
          \PY{c+c1}{\PYZsh{} Write your polysemous word exploration code here.}
          
          \PY{n}{wv\PYZus{}from\PYZus{}bin}\PY{o}{.}\PY{n}{most\PYZus{}similar}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{left}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
@@ -1268,7 +1268,7 @@ documentation}}.
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}18}]:} [('leaving', 0.6707000732421875),
+{\color{outcolor}Out[{\color{outcolor}19}]:} [('leaving', 0.6707000732421875),
           ('leave', 0.525093138217926),
           ('leaves', 0.5228644609451294),
           ('returned', 0.5059226751327515),
@@ -1312,7 +1312,7 @@ see the
 documentation}} for further assistance.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}19}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+{\color{incolor}In [{\color{incolor}20}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
          \PY{c+c1}{\PYZsh{} Write your synonym \PYZam{} antonym exploration code here.}
          
          \PY{n}{w1} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{sad}\PY{l+s+s2}{\PYZdq{}}
@@ -1363,7 +1363,7 @@ function can be found within the
 documentation}}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}20}]:} \PY{c+c1}{\PYZsh{} Run this cell to answer the analogy \PYZhy{}\PYZhy{} man : king :: woman : x}
+{\color{incolor}In [{\color{incolor}21}]:} \PY{c+c1}{\PYZsh{} Run this cell to answer the analogy \PYZhy{}\PYZhy{} man : king :: woman : x}
          \PY{n}{pprint}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{wv\PYZus{}from\PYZus{}bin}\PY{o}{.}\PY{n}{most\PYZus{}similar}\PY{p}{(}\PY{n}{positive}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{woman}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{king}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{negative}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{man}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 
@@ -1394,7 +1394,7 @@ complicated, explain why the analogy holds in one or two sentences.
 works!
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}21}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+{\color{incolor}In [{\color{incolor}22}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
          \PY{c+c1}{\PYZsh{} Write your analogy exploration code here.}
          
          \PY{n}{pprint}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{wv\PYZus{}from\PYZus{}bin}\PY{o}{.}\PY{n}{most\PYZus{}similar}\PY{p}{(}\PY{n}{positive}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{india}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{japanese}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{negative}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{japan}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
@@ -1429,7 +1429,7 @@ vectors. In your solution, state the intended analogy in the form x:y ::
 a:b, and state the (incorrect) value of b according to the word vectors.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}22}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+{\color{incolor}In [{\color{incolor}23}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
          \PY{c+c1}{\PYZsh{} Write your incorrect analogy exploration code here.}
          
          \PY{n}{pprint}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{wv\PYZus{}from\PYZus{}bin}\PY{o}{.}\PY{n}{most\PYZus{}similar}\PY{p}{(}\PY{n}{positive}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{indian}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{japan}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{negative}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{japanese}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
@@ -1471,7 +1471,7 @@ most similar to "man" and "boss" and most dissimilar to "woman". What do
 you find in the top 10?
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}23}]:} \PY{c+c1}{\PYZsh{} Run this cell}
+{\color{incolor}In [{\color{incolor}24}]:} \PY{c+c1}{\PYZsh{} Run this cell}
          \PY{c+c1}{\PYZsh{} Here `positive` indicates the list of words to be similar to and `negative` indicates the list of words to be}
          \PY{c+c1}{\PYZsh{} most dissimilar from.}
          \PY{n}{pprint}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{wv\PYZus{}from\PYZus{}bin}\PY{o}{.}\PY{n}{most\PYZus{}similar}\PY{p}{(}\PY{n}{positive}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{woman}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{boss}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{negative}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{man}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
@@ -1528,37 +1528,41 @@ bias is exhibited by the vectors. Please briefly explain the example of
 bias that you discover.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}24}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+{\color{incolor}In [{\color{incolor}25}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
          \PY{c+c1}{\PYZsh{} Write your bias exploration code here.}
          
-         \PY{n}{pprint}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{wv\PYZus{}from\PYZus{}bin}\PY{o}{.}\PY{n}{most\PYZus{}similar}\PY{p}{(}\PY{n}{positive}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{white}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{good}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,} \PY{n}{negative}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{black}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n}{pprint}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{wv\PYZus{}from\PYZus{}bin}\PY{o}{.}\PY{n}{most\PYZus{}similar}\PY{p}{(}\PY{n}{positive}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{white}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{king}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,} \PY{n}{negative}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{black}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
          
          \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-[('nice', 0.6383841037750244),
- ('great', 0.6161423921585083),
- ('terrific', 0.614184558391571),
- ('bad', 0.5943925380706787),
- ('excellent', 0.5763711929321289),
- ('decent', 0.5739346742630005),
- ('fantastic', 0.5718001127243042),
- ('perfect', 0.5275566577911377),
- ('better', 0.5265002250671387),
- ('wonderful', 0.5130241513252258)]
+[('kings', 0.6006536483764648),
+ ('queen', 0.5555342435836792),
+ ('monarch', 0.5463213324546814),
+ ('prince', 0.5353781580924988),
+ ('crown\_prince', 0.5255115628242493),
+ ('sultan', 0.5160589218139648),
+ ('Simeon\_Saxcoburggotski', 0.4914967119693756),
+ ('Savory\_aromas\_wafted', 0.47686171531677246),
+ ('princess', 0.47112494707107544),
+ ('princes', 0.4690479040145874)]
 
     \end{Verbatim}
 
     \paragraph{Write your answer here.}\label{write-your-answer-here.}
 
-The above are the top-10 terms that are are most similar to "white" and
-"good" and most dissimilar to "black".
+There seems to be gender bias .
 
-There seems to be bias exhibited by the vectors. 9 out of the 10 words
-represent personality traits. Also the word "bad" is \#4 in the list
-which seems counter-intuitive.
+\begin{itemize}
+\tightlist
+\item
+  6 references to male gender \{kings, monarch, prince, crown\_prince,
+  sultan, princes\}
+\item
+  2 references to female gender \{queen, princess\}
+\end{itemize}
 
     \subsubsection{Question 2.8: Thinking About Bias {[}written{]} (1
 point)}\label{question-2.8-thinking-about-bias-written-1-point}

@@ -1,3 +1,9 @@
+# misc downloads
+a1/a1/Gensim/
+a1/a1/Gensim.zip
+a1/a1/glove.6B.zip
+a1/a1/glove.6B/
+
 # ignore TF model folders
 .idea/
 .idea/CS224N-Natural-Language-Processing-with-Deep-Learning.iml
