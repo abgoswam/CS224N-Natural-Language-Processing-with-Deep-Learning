@@ -1507,17 +1507,11 @@ you find in the top 10?
 
     \paragraph{Write your answer here.}\label{write-your-answer-here.}
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\tightlist
-\item
-  "bosses".
-\item
-  "supremo" .
-\end{enumerate}
-
 "supremo" is \#9 in the first list, but \#1 in the second list. This
-reflects bias.
+reflects gender bias.
+
+Also, 'receptionist' shows up in list (a) indicating some jobs are
+strongly associated with gener bias
 
     \subsubsection{Question 2.7: Independent Analysis of Bias in Word
 Vectors {[}code + written{]} (2
@@ -1531,38 +1525,54 @@ bias that you discover.
 {\color{incolor}In [{\color{incolor}25}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
          \PY{c+c1}{\PYZsh{} Write your bias exploration code here.}
          
-         \PY{n}{pprint}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{wv\PYZus{}from\PYZus{}bin}\PY{o}{.}\PY{n}{most\PYZus{}similar}\PY{p}{(}\PY{n}{positive}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{white}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{king}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,} \PY{n}{negative}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{black}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n}{pprint}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{wv\PYZus{}from\PYZus{}bin}\PY{o}{.}\PY{n}{most\PYZus{}similar}\PY{p}{(}\PY{n}{positive}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{man}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{happy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{negative}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{woman}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{p}{)}
+         \PY{n}{pprint}\PY{o}{.}\PY{n}{pprint}\PY{p}{(}\PY{n}{wv\PYZus{}from\PYZus{}bin}\PY{o}{.}\PY{n}{most\PYZus{}similar}\PY{p}{(}\PY{n}{positive}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{woman}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{happy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{negative}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{man}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
          
          \PY{c+c1}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-[('kings', 0.6006536483764648),
- ('queen', 0.5555342435836792),
- ('monarch', 0.5463213324546814),
- ('prince', 0.5353781580924988),
- ('crown\_prince', 0.5255115628242493),
- ('sultan', 0.5160589218139648),
- ('Simeon\_Saxcoburggotski', 0.4914967119693756),
- ('Savory\_aromas\_wafted', 0.47686171531677246),
- ('princess', 0.47112494707107544),
- ('princes', 0.4690479040145874)]
+[('glad', 0.6125205159187317),
+ ('pleased', 0.5473452806472778),
+ ('satisfied', 0.5417203903198242),
+ ('disappointed', 0.5288206338882446),
+ ('Said\_Hirschbeck', 0.526934027671814),
+ ('ecstatic', 0.5232395529747009),
+ ('enthused', 0.5207719802856445),
+ ('delighted', 0.5127484798431396),
+ ('told\_whufc.com', 0.5124924778938293),
+ ('unhappy', 0.5101412534713745)]
+
+[('glad', 0.6112450361251831),
+ ('overjoyed', 0.5951108932495117),
+ ('thrilled', 0.5739917159080505),
+ ('ecstatic', 0.5727898478507996),
+ ('pleased', 0.5481809973716736),
+ ('elated', 0.5423532724380493),
+ ('proud', 0.5423129200935364),
+ ('excited', 0.5369352102279663),
+ ('happier', 0.5241470336914062),
+ ('delighted', 0.5236302018165588)]
 
     \end{Verbatim}
 
     \paragraph{Write your answer here.}\label{write-your-answer-here.}
 
-There seems to be gender bias .
-
-\begin{itemize}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  6 references to male gender \{kings, monarch, prince, crown\_prince,
-  sultan, princes\}
+  terms most similar to "man" and "happy" and most dissimilar to "woman"
 \item
-  2 references to female gender \{queen, princess\}
-\end{itemize}
+  terms most similar to "woman" and "happy" and most dissimilar to "man"
+\end{enumerate}
+
+List (1) has couple of negative words \{disappointed, unhappy\}. List
+(2) are \textbf{all} postive!
+
+There seems to be gender bias .
 
     \subsubsection{Question 2.8: Thinking About Bias {[}written{]} (1
 point)}\label{question-2.8-thinking-about-bias-written-1-point}
@@ -1571,7 +1581,7 @@ What might be the cause of these biases in the word vectors?
 
     \paragraph{Write your answer here.}\label{write-your-answer-here.}
 
-These reflect inherent biases in our writing.
+These reflect inherent biases in our writing / training data.
 
     \section{ Submission Instructions}\label{submission-instructions}
 
