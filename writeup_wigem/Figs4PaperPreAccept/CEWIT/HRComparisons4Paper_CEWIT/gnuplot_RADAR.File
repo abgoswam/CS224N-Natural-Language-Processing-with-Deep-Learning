@@ -1,0 +1,27 @@
+#
+#set title "US immigration from Northern Europe\nPlot selected data columns as histogram of clustered boxes"
+
+unset title
+set auto x
+set xlabel "Device"
+
+set yrange [0:14]
+set ylabel "Median Error(meters)"
+
+set mytics 2
+set grid #noxtics
+set grid noxtics
+
+set term post eps color "Times-Roman Bold" 25
+set output 'HRComparisonsMedianError_RADAR_cewit.eps'
+
+set style data histogram
+set style histogram cluster gap 3 
+set style fill solid border -1
+set boxwidth 0.9
+#set xtic rotate by -45 scale 0
+#set bmargin 10 
+
+
+plot 'HRCompRadar_cewit.csv' using 2:xtic(1) ti col, '' u 3 ti col, '' u 4 ti col
+#

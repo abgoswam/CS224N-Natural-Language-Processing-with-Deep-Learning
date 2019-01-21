@@ -1,0 +1,26 @@
+set xlabel "Learning Set Size"
+set ylabel " Average Error Distance (meters)"
+
+set xrange [0:110]
+set yrange [0:20]
+
+set xtics 
+set ytics 
+
+set grid
+
+set term post eps color "Times-Roman Bold" 31
+
+set output 'LearningSetSize_cewit.eps'
+#set title "| Learning Set | v/s Error Distance "
+set notitle
+set pointsize 2.5
+set datafile missing "x"
+
+plot	"LearningSetSizePlot.csv" using 1:2 with linespoints lt 2 lw 7 pt 5 lc 1 title 'Laptop', \
+ 	    "LearningSetSizePlot.csv" using 1:3 with linespoints lt 1 lw 7 pt 7 lc 2 title 'Android', \
+		"LearningSetSizePlot.csv" using 1:4 with linespoints lt 3 lw 7 pt 9 lc 3 title 'iPhone', \
+		"LearningSetSizePlot.csv" using 1:5 with linespoints lt 4 lw 7 pt 3 lc 4 title 'Netbook'
+
+set term wxt 0
+set output

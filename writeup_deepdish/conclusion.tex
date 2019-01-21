@@ -1,0 +1,8 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We observe that convolutional neural networks are quite suitable for the task of classifying food dishes, and outperform traditional machine learning approaches at this task. The transfer learning approach looks most promising, especially because both the training and validation accuracy are improving with the number of epochs (i.e. we have not overfit our model). This suggests that more data (and/or running it for more epochs) could improve the accuracy metric further. 
+
+From a  data collection perspective, we plan on leveraging ImageNet~\cite{imagenet} and Flickr~\cite{flickr} to build a larger dataset of images. From a modeling perspective, we also want to try out using convolutional nets as a \textit{fixed feature extractor}, and use the extracted features with linear classifiers or decision trees to improve accuracy. 
+
+There are several interesting problems around food images that we wish to investigate in the future. This includes being able to detect individual food items on plate, accurately predicting the number of calories given an image of a food dish etc. Convolutional networks seem to be a natural fit for these visual recognition tasks.  

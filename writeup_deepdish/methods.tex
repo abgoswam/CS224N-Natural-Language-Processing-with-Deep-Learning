@@ -1,0 +1,86 @@
+\section{Methods}
+\label{sec:methods}
+
+Image classification is the task of assigning a single label to an image (or rather an array of pixels that represents an image) from a fixed set of categories. A complete pipeline for this task is as follows:
+\begin{itemize}[noitemsep]
+\item \textbf{Input} : A set of $N$ images, each labeled with one of $K$ different classes. This data is referred to as the \textit{training set}.
+\item \textbf{Learning} (aka Training) : Use the \textit{training set} to learn the characteristics of each class. The output of this step is a \textit{model} which will be used for making predicions.
+\item \textbf{Evaluation}  : Evaluate the quality of the \textit{model} by asking it to make predictions on a new set of images that it has not seen before (also referred to as the \textit{test set}). This evaluation is done by comparing the true labels (aka ground truth) of the \textit{test set} with the predicted labels output by the learned \textit{model}.
+\end{itemize}
+
+The formal approach for solving the problem of image classification can be broken down into several key components which we discuss next.
+
+\subsection{Score Function}
+\label{subsec:scorefunction}
+
+The score function maps the raw data to class scores. For a linear classifier, the score function can be defined as: 
+\begin{align}
+f(\boldsymbol{x_{i}}, \boldsymbol{W}, \boldsymbol{b}) = \boldsymbol{W} \boldsymbol{x_{i}} + \boldsymbol{b}.\label{eqn:scorefunction}
+\end{align}
+
+where $\boldsymbol{x_{i}}$ represents the input image. The matrix $\boldsymbol{W}$, and the vector $\boldsymbol{b}$ are the parameters of the function, and represent the weights and bias respectively.
+
+In image classification, the score function takes an image ${\boldsymbol {x_{i}}}$ and computes the vector $f(\boldsymbol{x_{i}}, \boldsymbol{W})$ of the raw class scores (which we abbreviate as ${\boldsymbol {s}}$). So, given an image ${\boldsymbol {x_{i}}}$, the predicted score for the j-th class is the j-th element in $\boldsymbol{s}$ : $\boldsymbol{s}_{j} = f(\boldsymbol{x_{i}}, \boldsymbol{W})_{j}$. We use the  class scores from our training data to compute the loss.
+
+\subsection{Loss Function}
+\label{subsec:lossfunction}
+
+The loss function quantifies the match between the predicted \textit{scores} and the ground truth labels in the training data. The loss function (also referred to as the cost function or objective) can be viewed as the unhappiness of the predicted scores output by the score function. Intuitively, the loss would be low if the predicted scores match the training data labels closely. Otherwise the loss would be high. Next, we discuss the two common classifiers with details about their respective loss functions. 
+
+\subsection{Classifiers}
+\label{subsec:classifiers}
+
+In this section we discuss two common classifiers that are often used in image classification tasks: the \textbf{SVM Classifier} and the \textbf{Softmax Classifier}. For both of them the function mapping the input image $\boldsymbol{x_{i}}$ to the raw class scores $\boldsymbol{s} = f(\boldsymbol{x_{i}}, \boldsymbol{W})$ remains the same. But the Softmax classifier has one additional step : it uses the softmax function to squash the raw scores in $\boldsymbol{s}$ into a vector of values between zero and one, that sum to one.  We discuss the details of each classifier below.
+
+\subsubsection{SVM Classifier}
+\label{subsubsec:svmclassifier}
+
+The SVM classifier uses the \textit{hinge loss} (also referred to as \textit{max-margin loss}, or \textit{SVM loss}). For the i-th example in our data, the \textit{hinge loss} is given as:
+
+\begin{align}
+L_{i} = \sum_{j \neq y_{i}} \max(0, \boldsymbol{s}_{j} - \boldsymbol{s}_{y_{i}} + \Delta).\label{eqn:svmloss}
+\end{align}
+
+where $\Delta$ is a hyperparameter which represents that the SVM loss function in equation~\ref{eqn:svmloss} wants the score of the correct class $\boldsymbol{y_{i}}$ to be larger than the incorrect class scores by at least $\Delta$. Otherwise we incur loss. 
+
+\subsubsection{Softmax Classifier}
+\label{subsubsec:softmaxclassifier}
+
+The Softmax classifier uses the \textit{cross entropy loss} (also referred to as \textit{softmax loss}). For the i-th example in our data, the \textit{cross entropy loss} is given as:
+
+\begin{align}
+L_{i} =  - \log \frac {e^{f_{y_i}}} {\sum_{j} e^{f_{j}}}.\label{eqn:softmaxloss}
+\end{align}
+
+where $f_{j}$ means the j-th element of the vector of class scores $f$. Note that the softmax classifier uses the softmax function to squash the raw class scores ${\boldsymbol {s}}$ into normalized positive values that sum to one, so that the cross entropy loss can be applied. The \textbf{softmax function} can be represented as:
+
+\begin{align}
+f_{j} (z) =  \frac {e^{z_j}} {\sum_{k} e^{z_{k}}}.\label{eqn:softmaxfunction}
+\end{align}
+
+It takes a vector of real-valued scores (in z) and squashes it to a vector of values between zero and one, that sum to one.
+
+\subsection{Total Loss}
+\label{subsec:totalloss}
+
+For both the SVM Classifier and the Softmax Classifier, the full loss for the dataset is the mean of $L_{i}$ over all training examples, together with a regularization term, $R(W)$
+
+\begin{align}
+L =  \frac {\sum_{i} L_{i}} {N} +  \lambda R(W).\label{eqn:totalloss}
+\end{align}
+
+where $N$ represents the total number of images in the training set. $\lambda$ is a hyperparameter, often referred to as \textit{regularization strength}. The loss function lets us quantify the quality of any particular set of parameters in our model, the lower the loss the better. We next discuss strategies of how to minimize the loss.
+
+\subsection{Optimization}
+\label{subsec:optimization}
+
+Optimization is the process of finding the set of parameters of our model that minimize the total loss, defined in equation~\ref{eqn:totalloss}
+
+The core principle behind optimization techniques is to compute the \textbf{gradient} of the loss with respect to the parameters of the model. The gradient of a function gives the direction of steepest ascent. One way of computing the gradient efficiently is to compute the gradient analytically using a recursive application of the \textbf{chain rule}. This technique is called \textbf{backpropagation}~\cite{lecun2012efficient} and it allows us to efficiently optimize arbitrary loss functions. These loss functions  may be expressing different kinds of network architectures (e.g. fully connected neural networks, convolutional networks etc). Backpropagation is our tool of choice for computing the gradients in all such cases.  
+
+\subsubsection{Parameter Updates}
+\label{subsubsec:parameterupdates}
+   
+Once the analytic gradient is computed using backpropagation, the gradients are used to perform a parameter update. There are several approaches for performing the update that have been proposed in literature: SGD~\cite{bottou2010large}, SGD+Momentum~\cite{qian1999momentum, sutskever2013importance}, Nesterov Momentum~\cite{nesterov1983method}, Adagrad~\cite{duchi2011adaptive}, RMSprop~\cite{hinton2012neural}, Adam~\cite{kingma2014adam} etc.
+
+%-------------------------------------------------------------------------

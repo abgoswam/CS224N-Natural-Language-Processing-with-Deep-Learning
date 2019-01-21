@@ -1,0 +1,24 @@
+\section{Discussions}
+\label{sec:discussion}
+
+
+In its current embodiment, WiGEM uses a radio propagation model (Section ~\ref{subsec:handlingidentifiabilityinourmodel}) for initializing the WiGMM model. For handling identifiability in our model, we exploit the typical constraints between the means of the Gaussians at the same location for different power levels. Future work can explore whether enforcing similar  constraints during run time increases the localization accuracy. Our framework could also be used to do a more efficient training process, whereby the radio propagation model is substituted by a few carefully done measurements. In this case, including the power of the source into the model may increase the robustness of the method and make it work for various devices. As future work, we also plan to do adaptive localization by doing learning and using the adjacency of the locations as information to track how motion could evolve. This seems to have been done with EM before~\cite{Addesso:2010:ALT:1856330.1856381} and might be nicely combined with our technique. Additional factors like the number and location of sniffers, the size of the grid etc., and their effect on localization accuracy can also be explored.
+%1. Number of Sniffers and its impact. 
+%
+%2. Size of grid. Does finer grid work better ? 
+%
+%3. The same framework could also be used to do a more efficient training process. Basically, the model of Eq.(20) could maybe be substituted by a few carefully done measurements. The paper correctly identifies that such training works well for the device that performs the measurement but not for others. However, it seems that the inclusion of the power of the source in the model may increase the robustness of the method and make it work for various devices.
+%[AG] This is actually  a 'strengthening' comment. Should we include this in the paper ?
+%Yes. The model of Eq.(20) could maybe be substituted by a few carefully done measurements. . This is infact a strength of the proposed technique. We used  Eq.(20) instead to make our technique totally training-free. Future work can address the issue of how much benefit we get by initializing the model using a few carefully done measurements.
+%
+%[SRD] We can include this comment in the paper.
+%
+%4. 2.	There are typically constraints between the means of the Gaussians at the same location for different power levels. These constraints are enforced at initialization time when the means at a location for K power levels are initially set. But it is unclear how these constraints are enforced during the algorithm - so it seems possible that means for different transmit power levels at the same location may be quite far apart
+%
+%5. Paper lacks a statement of how to prevent the model from presenting bad solutions. A characterization of the error cases, and a discussion of what keeps the model in check, would be welcome.
+%
+%6. As the model uses unsupervised learning, a discussion of the nature of the errors and what could happen in degenerate situations would be welcome.
+%
+%7. I was a little disappointed that you didn't try tracking mobility by doing learning and using the adjacency of the locations as information to track how motion could evolve. I guess this could reduce the error further? This seems to have been done with EM before : Adaptive localization techniques in WiFi environments,    Paolo Addesso, Luigi Bruno, Rocco Restaino, ISWPC'10. and might be nicely combined with your technique
+
+

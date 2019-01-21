@@ -1,0 +1,74 @@
+\section{Dataset and Features}
+\label{sec:datasetandfeatures}
+
+We start with a discussion about our data collection methodology. We then present details about the data pre-processing steps. Finally we round up this section with details about our dataset.
+
+We provide some details about our dataset below.
+
+\subsection{Data Collection}
+\label{subsec:datacollection}
+
+We collected our dataset using the Google Image Search~\cite{googleimagesearch} and the Bing Image Search API~\cite{bingimagesearchapi}. We also explored the use of ImageNet~\cite{imagenet} and Flickr~\cite{flickr} for collecting images. However, we found the images from Google and Bing to be much more representative of the classes they belonged to, compared to the images from ImageNet and Flickr. ImageNet and Flickr seem to have a lot of spurious images (images which clearly do not belong to the class). Hence we decided to use the images we could collect from Google and Bing.
+
+\subsection{Pre-Processing Steps}
+\label{subsec:preprocessingsteps}
+
+We re-sized all of our images to have height, width and channel dimensions of 32, 32 and 3 respectively. This was done primarily for computational efficiency in performing our experiments. We filtered out images which we were unable to resize to our specified height, width and channel requirements. Unfortunately, this meant losing approx ~10\% of the data from our original dataset. Figure~\ref{fig:imgsburgerpizza} shows a two sample images from our dataset. As a part of pre-processing, we also subtract the mean image from all the images in our dataset. The mean image is computed using the image mean of the training data
+
+\subsection{Dataset Details}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+Dataset & Num of Images \\
+\hline
+Train & 18,927 \\
+Validate & 5,375 \\
+Test & 2,682 \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Dataset split for train, validation and test sets.}
+\label{table:datasplitdetails}
+\end{table}
+
+After the pre-processing steps described in Section~\ref{subsec:preprocessingsteps} we had a total of 26,984 images. We then split our dataset randomly into 3 disjoint sets: Train(70\% approx.), Validate(20\% approx.) and Test(10\% approx.). Table~\ref{table:datasplitdetails} provides a count of the number of images in each set.
+
+Currently our dataset has 20 classes.  This corresponds to 20 popular food dishes from around the world. Table~\ref{table:classdistribution} shows the class label distribution of the dataset. The distribution of the number of images in each class is mostly uniform. 
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+Food Item & Number of Images \\
+\hline\hline
+dumplings & 1,091\\
+dal & 1,031\\
+ramen & 1,023\\
+icecream & 1,021\\
+naan & 1,020\\
+sushi & 1,020\\
+cordonbleu & 1,018\\
+pasta & 1,002\\
+lasagna & 971\\
+friedrice & 966\\
+roastturkey & 930\\
+padthai & 919\\
+burger & 912\\
+samosa & 897\\
+burrito & 888\\
+pizza & 885\\
+bratwurst & 876\\
+biryani & 865\\
+sandwich & 847\\
+fries & 745\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Class distribution}
+\label{table:classdistribution}
+\end{table}
+
+
+%-------------------------------------------------------------------------

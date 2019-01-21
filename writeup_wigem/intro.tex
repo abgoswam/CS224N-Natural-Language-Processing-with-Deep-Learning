@@ -1,0 +1,85 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Over the past decade, the increasing use of wireless networking has fueled the 
+use of wireless links to localize wireless clients in indoor spaces. This issue
+is increasingly finding attention both from research and business communities 
+because a perfect, general-purpose solution such as outdoor GPS has been elusive. Close scrutiny 
+of available techniques reveal that more successful techniques require a substantial
+`pre-deployment' effort by way of creating RF maps, for example. 
+Technically, this is equivalent
+to `training'. Fine grain RF map creation makes localization 
+more accurate, but requires proportionately more effort.
+On the other hand, any RF map is inherently device specific.
+\emph{This pre-deployment burden that lacks generality
+has made these localization techniques less appealing in practice.}  This paper develops a new machine-learning based localization algorithm, WiGEM,
+that removes these limitations. 
+
+%The received signal strength (RSS) based techniques are the most popular as commodity wireless devices are all capable of measuring RSS. 
+
+Over time, two general localization approaches have emerged 
+in literature -- (i) client-based approach~\cite{Haeberlen:2004:PRL:1023720.1023728, Gwon:2004:ECC:1023783.1023786, Youssef:2008:HLD:1399551.1399558, Chintalapudi:2010:ILW:1859995.1860016, Ladd:2002:RLS:570645.570674, Youssef:2003:WLD:826025.826335} and (ii)  infrastructure-based approach~\cite{Moraes:2006:CWL:1164783.1164799, Lim:2010:ZIL:1741400.1741464, Tao:2003:WLL:941311.941314, Krishnan04asystem}. In the client-based approach, the client device measures the RSS (received signal strength) as seen by it from various APs (access points). This information is used to localize the client. In the infrastructure-based approach, the network administrator can use simple sniffing devices (or APs doubling as sniffers) to monitor clients and record RSS from the client transmissions.  This sniffed RSS is used to localize the client. The infrastructure-based approach is more attractive for large scale deployment, because
+any arbitrary client without any specific installed application can still localize itself
+with the assistance of the infrastructure. It is also easier to deploy, manage and maintain. 
+
+In the discussion that follows, we specifically focus on WiFi-based localization using
+an infrastructure-based approach. WiFi is chosen because of the popularity of WiFi devices and WiFi-based WLAN systems. But the technique we develop is not specific to any link layer technology. At this point we also make a distinction between `learning' and `training'. By `learning' we actually mean unsupervised learning, whereby we automatically try to estimate our model parameters from unlabeled data. On the other hand, `training' is akin
+to supervised learning that in our scenario leads to substantial limitations as discussed next.
+
+
+%
+%alluring for large-scale deployments, especially if building and maintaining the model can be automated. Moreover, such techniques perform location estimation without requiring hardware and/or software changes on the client device, which make them particularly attractive.
+%
+%
+%
+%Recent research has recognized this issue; however the proposed technique is not universally applicable~\cite{}. The goal of our work 
+%to develop a unsupervised learning technique that works without any training
+%
+%the need for location-aware pervasive computing applications in indoor environments. Traditional GPS-based techniques have problems working indoor which make them unattractive for such fine-grained indoor localization. On the other hand, indoor wireless LAN (WLAN) technologies, which have been enthusiastically and widely adopted in enterprises and homes, give us interesting features like Received Signal Strength(RSS), Angle of Arrival(AoA) etc for robust location estimation. Received signal strength (RSS) is particularly interesting because current commercial hardware can be used to extract the signal strength of wireless frames being transmitted by a Wi-Fi device. 
+%
+%Several techniques [x, y, x] have demonstrated the viability of using the RSS metric for location estimation.   It is interesting to note here that most of these location-estimation systems can essentially be categorized in two distinct ways : a client-based approach [p, q, r] and an infrastructure-based approach [a, b, c]. In the client-based approach, the client device measures the signal strength as seen by it from various AP(Access Point). This information is used to locate the client. In the infrastructure-based approach, the network administrator can use simple sniffing devices (or APs masquerading as sniffers) to monitor clients and extract the RSS from the tx-client.  This sniffed information is used to locate the client. Considering ease of management, provisioning, security, deployment,  maintenance etc, the infrastructure-based model seems alluring for large-scale deployments, especially if building and maintaining the model can be automated. Moreover, such techniques perform location estimation without requiring hardware and/or software changes on the client device, which make them particularly attractive.
+%
+
+\subsection{Limitations of Training}
+\label{subsec:limitationsoftraining}
+
+In the existing indoor WiFi localization solutions, the first phase is a pre-deployment `offline phase' or training phase aimed at building detailed RF maps or RF propagation models based on a survey of the target area. The second phase is the `online phase', where a localization algorithm is used to provide a location estimate for an observed set of RSS measurements from the mobile device being localized. There are three major drawbacks of this general approach. 
+\begin{enumerate}
+\item
+The device used during the `offline phase' may differ from the target device in the `online phase'. Unmodeled hardware devices operating at different transmit power levels can introduce significant variations in the signal patterns between the training device and the target device. This adversely affects the accuracy of location estimation \cite{Tsui:2009:ULS:1741410.1741596}. Experiments described later in this paper indicate how hardware variations between four common commodity WiFi devices can significantly degrade the accuracy of two commonly used localization algorithms. 
+\item
+The `offline phase' itself involves labor-intensive sampling of signal strength values at discrete locations in the target space. Again, experiments show that location accuracy depends significantly on the granularity of the training locations. If the training locations are sparse, the location estimates become substantially poorer.
+\item
+Static models built during the `offline phase' cannot counter time varying phenomena like movement of people, changing occupancy and surroundings etc. Most 
+`killer' applications of indoor localization would be in large shopping malls, airports, 
+convention centers etc., where such changes would be routine. 
+On the other hand, due to the reason 2 above, such models are difficult to update regularly. 
+\end{enumerate}
+
+\subsection{Approach}
+
+We propose WiGEM, a novel {\bf Wi}reless
+localization algorithm that uses the {\bf G}aussian Mixture Model (GMM) and employs {\bf E}xpectation 
+{\bf M}aximization (EM) to estimate the model parameters. 
+The model is initialized 
+using  a standard radio propagation model~\cite{Rappaport:2001:WCP:559977, Molkdar91} 
+and typical constraints that exist between the received signal strengths for different transmit 
+power levels at the same 
+location.
+
+WiGEM leverages the infrastructure based approach 
+while eliminating any `pre-deployment' effort. Packet transmissions made by a client are received on stationary sniffers 
+(or APs doubling as sniffers) that extract the RSS and MAC id of the target client and report this information to a 
+central localization server. Using this information, WiGEM builds a model for the target device and provides 
+a location estimate. The estimate can be made available to the client via a simple web-based
+application,  for example, depending on the intended application. But this is not a part
+of the current work. 
+
+
+
+WiGEM provides several key benefits by eliminating the `offline phase'. First, building a model for each target device effectively addresses the hardware variance problem. Thus, WiGEM can be used across heterogeneous devices, each operating at different power levels.  Second, zero `pre-deployment' effort makes WiGEM particularly attractive for large indoor spaces. Third, WiGEM is a purely online algorithm: the model parameters get updated and modified based on real-time RSS observations. As such, WiGEM is able to adapt to dynamic changes in the target space.
+
+The remainder of the paper is organized as follows. In Section~\ref{sec:relatedwork}, we survey related work in Indoor Localization. In Section~\ref{sec:problemformulation} we introduce WiGMM, the modeling approach we use to localize a target device, and discuss the parameters of the model. In Section~\ref{sec:emalgorithm} we discuss the EM algorithm, which is used to estimate the parameters of our model. Section~\ref{sec:experimentmethodology} provides details on the experiment methodology and Section~\ref{sec:evaluation} presents the experimental results obtained from two different testbeds. In Section~\ref{sec:discussion} we discuss WiGEM and identify items for future work. Finally, we present our conclusions in Section~\ref{sec:conclusions}.
+
+% \textbf{Our results of deploying GEM in two different office buildings are promising. We specifically note that when measurements made using one device are used to localize a different device,  GEM is seen to perform better that RF signal map based techniques like RADAR[x] and Probabilistic[y]
+% }

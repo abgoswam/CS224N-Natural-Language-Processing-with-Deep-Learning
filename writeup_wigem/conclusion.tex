@@ -1,0 +1,55 @@
+\section{Conclusions}
+\label{sec:conclusions}
+
+In this work, we have developed WiGEM, an infrastructure based technique to localize a
+wireless client in an indoor environment based on the RSS
+ of its transmitted packets as received on stationary sniffer devices (or APs doubling 
+as sniffers). WiGEM is based on a learning-based
+algorithm that can learn the parameters of a Gaussian Mixture Model
+dynamically from packets captured by the sniffers.
+By using dynamic packet captures for parameter
+estimation, WiGEM can provide location estimates 
+that are much more robust in the face of device and power level
+variabilities, mobility, and changes
+and reconfiguration of indoor spaces that many training-based systems
+are susceptible to. The biggest advantage of WiGEM is that there is no explicit 
+training phase. This saves a significant pre-deployment effort that is also
+difficult to maintain and update. Performance evaluations with 
+a range of different WiFi devices in two different indoor testbeds demonstrate
+that WiGEM performs better than model-based techniques and at par or better than 
+state-of-the-art RF map-based techniques. Of particular importance is WiGEM's
+superior performance when heterogeneous devices are used and when the RF map-based
+techniques have coarser training locations. 
+
+
+%{\bf Infact, we showed that we can achieve accuracy that is at par with state-of-the-art
+%techniques that use training to build RF-signal maps first} Thus,
+%our technique not only eliminates the intensive time-consuming (often manual) training phase
+%but also makes our technique scalable for large target spaces.
+%
+%\section{Placeholder. BibRef. (To Remove)}
+% Haeberlen04 \cite{Haeberlen:2004:PRL:1023720.1023728},
+% Gwon04 \cite{Gwon:2004:ECC:1023783.1023786},
+%Elnahraway04 \cite{Elnahraway:2004:LLU:1031495.1031537},
+% Moraes06 \cite{Moraes:2006:CWL:1164783.1164799},
+% Youssef08 \cite{Youssef:2008:HLD:1399551.1399558},
+%Ferris07 \cite{Ferris:2007:WUG:1625275.1625675},
+%Berna03 \cite{Berna:2003:LAL:1630659.1630885},
+% Lim10 \cite{Lim:2010:ZIL:1741400.1741464},
+% Tsui09 \cite{Tsui:2009:ULS:1741410.1741596},
+% Chintalapudi10 \cite{Chintalapudi:2010:ILW:1859995.1860016},
+% Ladd02 \cite{Ladd:2002:RLS:570645.570674},
+% Youssef03 \cite{Youssef:2003:WLD:826025.826335},
+% Tao03 \cite{Tao:2003:WLL:941311.941314},
+% Krishnan04 \cite{Krishnan04asystem},
+% Borman \cite{Borman_theexpectation},
+% Bilmes97 \cite{Bilmes97agentle},
+%Roos02 \cite{Roos},
+% Madigan \cite{Madigan05bayesianindoor},
+% Bahl00 \cite{Bahl00radar:an},
+% Molkdar91 \cite{Molkdar},
+% Bishop \cite{Bishop:2006:PRM:1162264},
+% Reynolds \cite{Reynolds},
+%Dempster77 \cite{Dempster77maximumlikelihood},
+%Dinov \cite{DinovIvoD},
+%Rappaport \cite{Rappaport:2001:WCP:559977}

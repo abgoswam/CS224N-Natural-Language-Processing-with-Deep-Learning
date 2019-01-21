@@ -1,0 +1,149 @@
+\documentclass{sig-alternate-10pt-CoNEXT}
+%\usepackage[small,bf]{caption}
+\usepackage{caption}
+\usepackage{subfig}
+\usepackage{epstopdf}
+\usepackage{color}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath,amssymb}
+\pagenumbering{arabic}
+\setlength{\jot}{10pt} 
+\renewcommand{\floatpagefraction}{0.8}
+
+\usepackage{url}
+%% Define a new 'leo' style for the package.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\normalsize\ttfamily}}}
+\makeatother
+%% Now actually use the newly defined style.
+\urlstyle{leo}
+
+\hyphenation{Wi-Gem amen-able mar-ginal}
+\begin{document}
+
+% --- Author Metadata here ---
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (200X) to be over-ridden - IF NEED BE.
+% ACM CoNEXT 2008: the following needs to be over-ridden to include the
+% right copyright info
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\pagestyle{empty}
+\title{WiGEM : A Learning-Based Approach for Indoor Localization}
+%\subtitle{[  Paper Id : 1569469851. Number of Pages : 12 ]}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+\numberofauthors{1} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+Abhishek Goswami, Luis E. Ortiz, Samir R. Das\\
+       \affaddr{Computer Science Department, Stony Brook University, Stony Brook, New York 11794, USA}\\
+%       \affaddr{Stony Brook University}\\
+%       \affaddr{Stony Brook, New York 11794, USA}\\
+       \email{agoswami,leortiz,samir@cs.stonybrook.edu}
+% 2nd. author
+%\alignauthor
+%Luis Ortiz
+%       \affaddr{Computer Science Department}\\
+%       \affaddr{Stony Brook University}\\
+%       \email{leortiz@cs.stonybrook.edu}
+%% 3rd. author
+%\alignauthor 
+%Samir R. Das
+%       \affaddr{Computer Science}\\
+%       \affaddr{Stony Brook University}\\
+%       \email{samir@cs.stonybrook.edu}
+}
+
+%\date{03 June 2011}
+
+\maketitle
+\begin{abstract}
+We consider the problem of localizing a wireless client in an
+indoor environment based on the signal strength of its transmitted
+packets as received on stationary sniffers or access points.
+Several state-of-the-art indoor localization techniques have the
+drawback that they rely extensively on a labor-intensive`training' phase that does not scale 
+well.  Use of unmodeled hardware with heterogeneous
+power levels further reduces the accuracy of these
+techniques.
+
+We propose a `learning-based' approach, WiGEM, where the received signal
+strength is modeled as a Gaussian Mixture Model (GMM). Expectation
+Maximization (EM) is used to learn the maximum likelihood estimates of 
+the model parameters. 
+This approach enables us to localize a transmitting device based on the 
+\textit{maximum a posteriori} estimate. The key insight is to use the physics of wireless propagation, 
+and exploit the signal strength constraints that exist for different transmit power levels. 
+The learning approach not only avoids the 
+labor-intensive
+training, but also makes the location estimates considerably robust in the face of heterogeneity and 
+various time
+varying phenomena.  We present evaluations on two different
+indoor testbeds with multiple WiFi devices. We demonstrate that WiGEM's
+accuracy is at par with or better than state-of-the-art techniques but
+without requiring any training.
+\end{abstract}
+
+\input{intro}
+\input{related}
+%\input{wireless}
+\input{gmm}
+\input{em-algorithm}
+\input{exp-methods}
+\input{evaluation}
+%\newpage
+\input{discussion}
+\input{conclusion}
+
+%{\color{red}
+\section*{ACKNOWLEDGEMENT}
+The authors would like to thank Zafar Qazi for help in experiments.
+This work was partially supported by NSF grants CNS-0751121, 0831791 and 1117719 and 
+an NSF CAREER award IIS-1054541. 
+%}
+
+%\newpage
+\bibliographystyle{abbrv}
+\bibliography{sigproc}  
+
+\end{document}  
+

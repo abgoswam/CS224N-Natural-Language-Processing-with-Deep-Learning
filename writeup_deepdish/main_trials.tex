@@ -1,0 +1,79 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{subcaption}
+
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false]{hyperref}
+
+\cvprfinalcopy % *** Uncomment this line for the final submission
+
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+\setcounter{page}{1}
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{Deep Dish : Deep Learning for Classifying Food Dishes}
+
+\author{Abhishek Goswami\\
+Microsoft\\
+Redmond, WA\\
+{\tt\small agoswami@microsoft.com}
+% For a paper whose authors are all at the same institution,
+% omit the following lines up until the closing ``}''.
+% Additional authors and addresses can be added with ``\and'',
+% just like the second author.
+% To save space, use either the email address or home page, not both
+\and
+Haichen Liu\\
+Dropbox\\
+Seattle, WA\\
+{\tt\small haichen@dropbox.com}
+}
+
+\maketitle
+%\thispagestyle{empty}
+
+%%%%%%%%% ABSTRACT
+\begin{abstract}
+   %The ABSTRACT is to be in fully-justified italicized text, at the top
+   %of the left-hand column, below the author and affiliation
+   %information. Use the word ``Abstract'' as the title, in 12-point
+   %Times, boldface type, centered relative to the column, initially
+   %capitalized. The abstract is to be in 10-point, single-spaced type.
+   %Leave two blank lines after the Abstract, then begin the main text.
+   %Look at previous CVPR abstracts to get a feel for style and length.
+	
+	We consider the problem of classifying food dishes. Food items have unique characteristics - they come in different colors and shapes, can be clustered into groups (e.g. fruits, vegetables), and can be combined in several ways to prepare a meal etc. This makes images of food dishes particularly interesting to classify. We show that convolutional neural networks are quite suitable for this task, and outperform traditional machine learning approaches in classifying food dishes.
+		
+\end{abstract}
+
+%%%%%%%%% BODY TEXT
+\input{intro}
+\input{related}
+\input{methods}
+\input{dataset}
+\input{results}
+\input{conclusion}
+
+%------------------------------------------------------------------------
+{\small
+\bibliographystyle{ieee}
+\bibliography{egbib}
+}
+
+\end{document}

@@ -1,0 +1,147 @@
+\begin{thebibliography}{10}
+
+\bibitem{Addesso:2010:ALT:1856330.1856381}
+P.~Addesso, L.~Bruno, and R.~Restaino.
+\newblock Adaptive localization techniques in {W}i{F}i environments.
+\newblock In {\em Proc. of the 5th IEEE International Conference on Wireless
+  Pervasive Computing}, ISWPC'10, pages 289--294, 2010.
+
+\bibitem{Bahl00radar:an}
+P.~Bahl and V.~N. Padmanabhan.
+\newblock {RADAR}: An in-building {RF}-based user location and tracking system.
+\newblock In {\em Proc. of IEEE INFOCOM}, pages 775--784, 2000.
+
+\bibitem{Bilmes97agentle}
+J.~Bilmes.
+\newblock A gentle tutorial on the {EM} algorithm and its application to
+  parameter estimation for gaussian mixture and hidden markov models.
+\newblock Technical report.
+\newblock TR-97-021, ICSI, 1997. Available from :
+  \url{http://ssli.ee.washington.edu/~bilmes/pgs/b2hd-bilmes1997-em.html}.
+
+\bibitem{Bishop:2006:PRM:1162264}
+C.~M. Bishop.
+\newblock {\em {P}attern {R}ecognition and {M}achine {L}earning ({I}nformation
+  {S}cience and {S}tatistics)}.
+\newblock Springer-Verlag New York, Inc., Secaucus, NJ, USA, 2006.
+
+\bibitem{Borman_theexpectation}
+S.~Borman.
+\newblock The {E}xpectation {M}aximization algorithm: {A} short tutorial.
+\newblock Technical report, 2004.
+\newblock \url{http://www.seanborman.com/}.
+
+\bibitem{Chintalapudi:2010:ILW:1859995.1860016}
+K.~Chintalapudi, A.~Padmanabha~Iyer, and V.~N. Padmanabhan.
+\newblock {I}ndoor localization without the pain.
+\newblock In {\em Proc. ACM MobiCom Conference}, pages 173--184, 2010.
+
+\bibitem{Moraes:2006:CWL:1164783.1164799}
+L.~F.~M. de~Moraes and B.~A.~A. Nunes.
+\newblock Calibration-free {WLAN} location system based on dynamic mapping of
+  signal strength.
+\newblock In {\em Proc. of the 4th ACM International Workshop on Mobility
+  Management and Wireless Access}, MobiWac '06, pages 92--99, 2006.
+
+\bibitem{Dempster77maximumlikelihood}
+A.~P. Dempster, N.~M. Laird, and D.~B. Rubin.
+\newblock Maximum likelihood from incomplete data via the {EM} algorithm.
+\newblock {\em Journal of the Royal Statistical Society. Series B
+  (Methodological)}, (39), 1977.
+
+\bibitem{DinovIvoD}
+I.~D. Dinov.
+\newblock {E}xpectation {M}aximization and {M}ixture {M}odeling {T}utorial.
+\newblock Technical report, 2008.
+\newblock UC Los Angeles: Statistics Online Computational Resource. Retrieved
+  from: \url{http://escholarship.org/uc/item/1rb70972}.
+
+\bibitem{Gwon:2004:ECC:1023783.1023786}
+Y.~Gwon and R.~Jain.
+\newblock Error characteristics and calibration-free techniques for wireless
+  {LAN}-based location estimation.
+\newblock In {\em Proc. of the Second International Workshop on Mobility
+  Management and Wireless Access Protocols}, MobiWac '04, pages 2--9, 2004.
+
+\bibitem{Haeberlen:2004:PRL:1023720.1023728}
+A.~Haeberlen, E.~Flannery, A.~M. Ladd, A.~Rudys, D.~S. Wallach, and L.~E.
+  Kavraki.
+\newblock Practical robust localization over large-scale 802.11 {W}ireless
+  {N}etworks.
+\newblock In {\em Proc. ACM MobiCom Conference}, pages 70--84, 2004.
+
+\bibitem{Krishnan04asystem}
+P.~Krishnan, A.~Krishnakumar, W.-H. Ju, C.~Mallows, and S.~Ganu.
+\newblock A system for {LEASE}: location estimation assisted by stationary
+  emitters for indoor {RF} wireless networks.
+\newblock In {\em Proc. of IEEE INFOCOM}, pages 1001--1011, 2004.
+
+\bibitem{Ladd:2002:RLS:570645.570674}
+A.~M. Ladd, K.~E. Bekris, A.~Rudys, G.~Marceau, L.~E. Kavraki, and D.~S.
+  Wallach.
+\newblock Robotics-based location sensing using wireless ethernet.
+\newblock In {\em Proc. ACM MobiCom Conference}, pages 227--238, 2002.
+
+\bibitem{Lim:2010:ZIL:1741400.1741464}
+H.~Lim, L.-C. Kung, J.~C. Hou, and H.~Luo.
+\newblock {Z}ero-configuration indoor localization over {IEEE} 802.11 wireless
+  infrastructure.
+\newblock {\em Wireless Networks}, 16:405--420, February 2010.
+
+\bibitem{Madigan05bayesianindoor}
+D.~Madigan, Elnahrawy, R.~P. Martin, W.~hua Ju, P.~Krishnan, and
+  A.Krishnakumar.
+\newblock Bayesian indoor positioning systems.
+\newblock In {\em Proc. of IEEE INFOCOM}, pages 1217--1227, 2005.
+
+\bibitem{Molkdar91}
+D.~Molkdar.
+\newblock Review on radio propagation into and within buildings.
+\newblock In {\em Microwaves, Antennas and Propagation, IEE Proceedings H},
+  pages 61--73, 1991.
+
+\bibitem{Rappaport:2001:WCP:559977}
+T.~Rappaport.
+\newblock {\em {W}ireless {C}ommunications: {P}rinciples and {P}ractice}.
+\newblock Prentice Hall PTR, Upper Saddle River, NJ, USA, 2nd edition, 2001.
+
+\bibitem{Reynolds}
+D.~Reynolds.
+\newblock {G}aussian {M}ixture {M}odels.
+\newblock {\em Encyclopedia of Biometric Recognition, Springer}, Feb. 2008.
+
+\bibitem{Roos}
+T.~Roos, P.~Myllymki, H.~Tirri, P.~Misikangas, and J.~Sievänen.
+\newblock A probabilistic approach to {WLAN} user location estimation.
+\newblock In {\em International Journal of Wireless Information Networks},
+  pages 155--164, 2002.
+
+\bibitem{soekris}
+{Soekris Engineering, Inc.}
+\newblock \url{http://soekris.com/products/net4801.html}.
+
+\bibitem{Tao:2003:WLL:941311.941314}
+P.~Tao, A.~Rudys, A.~M. Ladd, and D.~S. Wallach.
+\newblock Wireless {LAN} location-sensing for security applications.
+\newblock In {\em Proc. of the 2nd ACM Workshop on Wireless security}, WiSe
+  '03, pages 11--20, 2003.
+
+\bibitem{Tsui:2009:ULS:1741410.1741596}
+A.~W. Tsui, Y.-H. Chuang, and H.-H. Chu.
+\newblock {U}nsupervised learning for solving {RSS} hardware variance problem
+  in {WiFi} localization.
+\newblock {\em Mobile Networks and Applications}, 14:677--691, 2009.
+
+\bibitem{Youssef:2008:HLD:1399551.1399558}
+M.~Youssef and A.~Agrawala.
+\newblock The {H}orus location determination system.
+\newblock {\em Wireless Networks}, 14:357--374, June 2008.
+
+\bibitem{Youssef:2003:WLD:826025.826335}
+M.~A. Youssef, A.~Agrawala, and A.~U. Shankar.
+\newblock {WLAN} location determination via clustering and probability
+  distributions.
+\newblock In {\em Proc. of the First IEEE International Conference on Pervasive
+  Computing and Communications}, PerCom '03, pages 143--150, 2003.
+
+\end{thebibliography}
