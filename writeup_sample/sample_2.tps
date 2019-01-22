@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=971
-NormalPos.bottom=453
+NormalPos.right=1681
+NormalPos.bottom=654
 Class=LaTeXView
 Document=sample_2.tex
 
 [Frame0_View0,0]
-TopLine=35
-Cursor=1199
+TopLine=0
+Cursor=170
 
 [Frame1]
 Flags=0
@@ -29,14 +29,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=971
-NormalPos.bottom=453
+NormalPos.right=1681
+NormalPos.bottom=654
 Class=LaTeXView
 Document=samplefile.tex
 
 [Frame1_View0,0]
-TopLine=96
-Cursor=3900
+TopLine=31
+Cursor=981
 
 [Frame2]
 Flags=0
@@ -47,8 +47,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=971
-NormalPos.bottom=453
+NormalPos.right=1681
+NormalPos.bottom=654
 Class=LaTeXView
 Document=lists.tex
 
@@ -65,16 +65,16 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=971
-NormalPos.bottom=453
+NormalPos.right=1681
+NormalPos.bottom=654
 Class=LaTeXView
 Document=patQ.tex
 
 [Frame3_View0,0]
-TopLine=46
-Cursor=1881
+TopLine=59
+Cursor=948
 
 [SessionInfo]
 FrameCount=4
-ActiveFrame=0
+ActiveFrame=3
 

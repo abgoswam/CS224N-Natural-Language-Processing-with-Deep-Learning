@@ -56,34 +56,24 @@
 		\item
 		% (b) question to compute wrt v_{c}
 		\begin{equation}
-		{\partial 		\boldsymbol{J}_\textsubscript{naive-softmax}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U}) \over \partial \boldsymbol{\upsilon}_c} = 
+		\frac{\partial 		\boldsymbol{J}_\textsubscript{naive-softmax}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U})}{\partial \boldsymbol{\upsilon}_c} = 
 		- \boldsymbol{u}_{o} + \sum_{w=1}^V \hat{y}_w \boldsymbol{u}_{w}.
 		\end{equation}
 
 		also equivalent to 
 		
 		\begin{equation}
-		{\partial 		\boldsymbol{J}_\textsubscript{naive-softmax}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U}) \over \partial \boldsymbol{\upsilon}_c} = 
+		\frac{\partial 		\boldsymbol{J}_\textsubscript{naive-softmax}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U})}{\partial \boldsymbol{\upsilon}_c} = 
 		\boldsymbol{U} (\boldsymbol{\hat{y}} - \boldsymbol{y}).
 		\end{equation}
 		
 		\item
 		%  (c) question to compute wrt U
 		\begin{equation}
-		{\partial 		\boldsymbol{J}_\textsubscript{naive-softmax}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U}) \over \partial \boldsymbol{U}} = 
+		\frac{\partial 		\boldsymbol{J}_\textsubscript{naive-softmax}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U})}{\partial \boldsymbol{U}} = 
 		\boldsymbol{v}_{c} (\boldsymbol{\hat{y}} - \boldsymbol{y})^\top.
 		\end{equation}
-	
-		also equivalent to 
-		
-		\begin{equation}
-		{\partial 		\boldsymbol{J}_\textsubscript{naive-softmax}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U}) \over \partial \boldsymbol{U}}= 
-\begin{cases}
-    (\hat{y}_{w} - 1) \boldsymbol{\upsilon}_c, & \text{if } x\geq 1\\
-    \hat{y}_{w} \boldsymbol{\upsilon}_c, & \text{otherwise}
-\end{cases}.
-		\end{equation}
-		
+			
 		\item
 		%  (d) derivative of sigmoid. 
 		\begin{equation}
@@ -93,20 +83,22 @@
 		\item
 		%  (e) derivative of neg sample.
 		\begin{equation}
-		{\partial 		\boldsymbol{J}_\textsubscript{neg-sample}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U}) \over \partial \boldsymbol{\upsilon}_c} = 
+		\frac{\partial 		\boldsymbol{J}_\textsubscript{neg-sample}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U})}{\partial \boldsymbol{\upsilon}_c} = 
 		(\sigma(\boldsymbol{u}_{o}^\top \boldsymbol{v}_c) - 1) \boldsymbol{u}_{o} -
-		\sum_{k=1}^{k} (\sigma(\boldsymbol{u}_{k}^\top \boldsymbol{v}_c) - 1) \boldsymbol{u}_{k}
+		\sum_{k=1}^{k} (\sigma(- \boldsymbol{u}_{k}^\top \boldsymbol{v}_c) - 1) \boldsymbol{u}_{k}
 		\end{equation}
 
 		\begin{equation}
-		{\partial 		\boldsymbol{J}_\textsubscript{neg-sample}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U}) \over \partial \boldsymbol{u}_c} = 
+		\frac{\partial 		\boldsymbol{J}_\textsubscript{neg-sample}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U})}{\partial \boldsymbol{u}_o} = 
 		(\sigma(\boldsymbol{u}_{o}^\top \boldsymbol{v}_c) - 1) \boldsymbol{v}_{c}.
 		\end{equation}
 		
 		\begin{equation}
-		{\partial 		\boldsymbol{J}_\textsubscript{neg-sample}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U}) \over \partial \boldsymbol{u}_k} = 
+		\frac{\partial 		\boldsymbol{J}_\textsubscript{neg-sample}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U})}{\partial \boldsymbol{u}_k} = 
 		-(\sigma(-\boldsymbol{u}_{k}^\top \boldsymbol{v}_c) - 1) \boldsymbol{v}_{c}.
 		\end{equation}
+		
+		$J_\textsubscript{neg-sample}$ is more efficient to compute than $J_\textsubscript{naive-softmax}$. In $J_\textsubscript{naive-softmax}$ we use softmax to compute the probability of outside word given the center word. In order to compute the probability, we need to normalize over all the words in the vocabulary. This is not efficient especially when the vocabulary size is large.
 		
 		\item
 		%  (f) skip gram.
@@ -115,21 +107,21 @@
 			\item 
 			
 		\begin{equation}
-		{\partial 		\boldsymbol{J}_\textsubscript{skip-gram}(\boldsymbol{\upsilon}_c, w_{t-m},... w_{t+m}, \boldsymbol{U}) \over \partial \boldsymbol{U}} = 
-		\sum_{-m \leq j \leq m, j \neq 0} {\partial 		\boldsymbol{J}(\boldsymbol{\upsilon}_c, w_{t+j}, \boldsymbol{U}) \over \partial \boldsymbol{U}}.
+		\frac{\partial 		\boldsymbol{J}_\textsubscript{skip-gram}(\boldsymbol{\upsilon}_c, w_{t-m},... w_{t+m}, \boldsymbol{U})}{\partial \boldsymbol{U}} = 
+		\sum_{-m \leq j \leq m, j \neq 0} \frac{\partial 		\boldsymbol{J}(\boldsymbol{\upsilon}_c, w_{t+j}, \boldsymbol{U})}{\partial \boldsymbol{U}}.
 		\end{equation}
 		
       \item
 	
 		\begin{equation}	
-		{\partial 		\boldsymbol{J}_\textsubscript{skip-gram}(\boldsymbol{\upsilon}_c, w_{t-m},... w_{t+m}, \boldsymbol{U}) \over \partial \boldsymbol{\upsilon}_{c}} = 
-				\sum_{-m \leq j \leq m, j \neq 0} {\partial 		\boldsymbol{J}(\boldsymbol{\upsilon}_c, w_{t+j}, \boldsymbol{U}) \over \partial \boldsymbol{v}_{c}}
+		\frac{\partial 		\boldsymbol{J}_\textsubscript{skip-gram}(\boldsymbol{\upsilon}_c, w_{t-m},... w_{t+m}, \boldsymbol{U})}{\partial \boldsymbol{\upsilon}_{c}} = 
+				\sum_{-m \leq j \leq m, j \neq 0} \frac{\partial 		\boldsymbol{J}(\boldsymbol{\upsilon}_c, w_{t+j}, \boldsymbol{U})}{\partial \boldsymbol{v}_{c}}
 		\end{equation}	
 			
 			\item 
 		
 		\begin{equation}	
-		{\partial 		\boldsymbol{J}_\textsubscript{skip-gram}(\boldsymbol{\upsilon}_c, w_{t-m},... w_{t+m}, \boldsymbol{U}) \over \partial \boldsymbol{\upsilon}_{w}} = 0, 
+		\frac{\partial 		\boldsymbol{J}_\textsubscript{skip-gram}(\boldsymbol{\upsilon}_c, w_{t-m},... w_{t+m}, \boldsymbol{U})}{\partial \boldsymbol{\upsilon}_{w}} = 0, 
 		\text{when} w \neq c
 		\end{equation}
 			
@@ -143,8 +135,14 @@
     \centering
     \includegraphics{word_vectors}
     \caption{Word Vectors}
-    \label{word_vectors}
+    \label{fig:word_vectors}
 	\end{figure}
+	
+	In Figure ~\ref{fig:word_vectors} we make the following observations :
+	\begin{enumerate}
+	\item Semantic similarity e.g. (king, male)  (queen female)
+	\item Syntactic structure e.g. (man, woman)  (male, female)
+	\end{enumerate}
 	
 \end{enumerate}
 
