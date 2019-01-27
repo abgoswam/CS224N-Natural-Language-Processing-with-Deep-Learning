@@ -335,4 +335,5 @@ Gradient wrt Center Vectors (dJ/dV):
     """)
 
 if __name__ == "__main__":
+    print("abhishek")
     test_word2vec()

@@ -31,6 +31,9 @@ class PartialParse(object):
         ### Note: The root token should be represented with the string "ROOT"
         ###
 
+        self.stack = ["ROOT"]
+        self.buffer = sentence.copy()
+        self.dependencies = []
 
         ### END YOUR CODE
 
@@ -50,6 +53,15 @@ class PartialParse(object):
         ###         2. Left Arc
         ###         3. Right Arc
 
+        if transition == "S":
+            item = self.buffer.pop(0)
+            self.stack.append(item)
+        elif transition == "LA":
+            self.dependencies.append((self.stack[-1], self.stack[-2]))
+            self.stack.pop(-2)
+        else:
+            self.dependencies.append((self.stack[-2], self.stack[-1]))
+            self.stack.pop(-1)
 
         ### END YOUR CODE
 
@@ -101,6 +113,47 @@ def minibatch_parse(sentences, model, batch_size):
     ###             to remove objects from the `unfinished_parses` list. This will free the underlying memory that
     ###             is being accessed by `partial_parses` and may cause your code to crash.
 
+    partial_parses = []
+    for sentence in sentences:
+        _pp = PartialParse(sentence)
+        partial_parses.append(_pp)
+
+    # unfinished_parses = partial_parses.copy()
+    #
+    # while len(unfinished_parses) > 0:
+    #     minibatch_parses = unfinished_parses[:batch_size]
+    #     transitions = model.predict(minibatch_parses)
+    #
+    #     for i in range(len(transitions)):
+    #         _tr = transitions[i]
+    #         _pp = minibatch_parses[i]
+    #
+    #         _pp.parse_step(_tr)
+    #         if len(_pp.buffer) == 0 and len(_pp.stack) == 1:
+    #             unfinished_parses.pop(i)
+
+    # works V1 (creating minibatch array explicitly)
+    unfinished_idx = [i for i in range(len(partial_parses))]
+    while len(unfinished_idx) > 0:
+        minibatch_indices = unfinished_idx[:batch_size]
+        minibatch_parses = []
+        for mi in minibatch_indices:
+            minibatch_parses.append(partial_parses[mi])
+
+        transitions = model.predict(minibatch_parses)
+        for i in range(len(transitions)):
+            _tr = transitions[i]
+            _mi = minibatch_indices[i]
+
+            _p = minibatch_parses[i]
+            _p.parse_step(_tr)
+
+            if len(_p.buffer) == 0 and len(_p.stack) == 1:
+                unfinished_idx.remove(_mi)
+
+
+    for item in partial_parses:
+        dependencies.append(item.dependencies)
 
     ### END YOUR CODE
 

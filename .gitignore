@@ -7,6 +7,7 @@ a2/a2/utils/datasets/
 a2/a2/saved_params_*
 a2/a2/saved_state_*
 a2/a2/assignment2.zip
+a3/a3/results/
 
 # ignore TF model folders
 .idea/
