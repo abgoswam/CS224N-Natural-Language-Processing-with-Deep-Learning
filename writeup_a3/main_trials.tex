@@ -50,13 +50,13 @@
 			% 1 (a) (i) 
 			\item
 			
-			$\boldsymbol{m}$ is rolling average of the gradients. $\theta_1$ is a hyper parameter between 0 and 1. 
+			$\boldsymbol{m}$ is rolling average of the gradients. $\beta_1$ is a hyper parameter between 0 and 1. 
 			
 		\begin{align}
 		\boldsymbol{m} \leftarrow \beta_{1} \boldsymbol{m} + (1 - \beta_{1}) \nabla_{\boldsymbol{\theta}} \boldsymbol{J}_\textsubscript{minibatch}(\boldsymbol{\theta}).
 		\end{align}
 		
-			The fact that beta1 is set to a high value (0.9 often) suggests that m is changing very little at each step.  This in turn ensures that the  model parameters  do not bounce around when moving towards the local optimum.
+			The fact that $\beta_1$ is set to a high value (0.9 often) suggests that $\boldsymbol{m}$ is changing very little at each step.  This in turn ensures that the  model parameters  do not bounce around when moving towards the local optimum.
 			% 1 (a) (ii) 
 			\item
 			$\boldsymbol{v}$ is the rolling average of the magnitude of the gradients. 
@@ -101,9 +101,7 @@
 			
 			Dropout is a regularization technique that we want to use during training to prevent overfitting on the training data. 
 
-			At test time, we should not do dropout, else it would result in randomness in predictions. One thing we should do during test time is to scale the predictions appropriately  to account for the expected drop probablity.  
-			
-			Alternatively, we can use \textbf{inverted dropout} so we do the scaling at training time itself, and leave the code untouched during test time. 
+			At test time, we should not do dropout, else it would result in randomness in predictions. One thing we should do during test time is to scale the predictions appropriately  to account for the expectation term $\mathbb{E}_{p_{drop}}[\mathbf{h}_{drop}]_{i}$. Alternatively, we can use \textbf{inverted dropout} so we do the scaling at training time itself, and leave the code untouched during test time. 
 												
     \end{enumerate}
   
@@ -140,16 +138,45 @@ Stack                              & Buffer                                     
 	\item A sentence containing $n$ words will be parsed in $2n$ steps.  
 	It is either (a) SHIFT  or (b)  one of $\{LEFT-ARC | RIGHT-ARC\} $
 	% 2 (c)
-	\item Coding exercise
+	\item Coding exercise.
 	% 2 (d)
-	\item Coding exercise
+	\item Coding exercise.
 	% 2 (e)
-	\item Coding exercise
+	\item dev UAS: 88.36. test UAS: 88.90
 	% 2 (f)
-	\item Getting wrong.
+	\item Example dependency parses.
 	
-	\end{enumerate}
-	
+		\begin{enumerate}
+				% 2 (f) i
+				\item 
+					\begin{description}
+						\item[$\bullet$ Error type] item 1
+						\item[$\bullet$ Incorrect dependency] item 2
+						\item[$\bullet$ Correct dependency] item 3
+					\end{description}
+				% 2 (f) i
+				\item 
+					\begin{description}
+						\item[$\bullet$ Error type] item 1
+						\item[$\bullet$ Incorrect dependency] item 2
+						\item[$\bullet$ Correct dependency] item 3
+					\end{description}
+				% 2 (f) i
+				\item 
+					\begin{description}
+						\item[$\bullet$ Error type] item 1
+						\item[$\bullet$ Incorrect dependency] item 2
+						\item[$\bullet$ Correct dependency] item 3
+					\end{description}
+				% 2 (f) i
+				\item 
+					\begin{description}
+						\item[$\bullet$ Error type] item 1
+						\item[$\bullet$ Incorrect dependency] item 2
+						\item[$\bullet$ Correct dependency] item 3
+					\end{description}
+			\end{enumerate}	
+	\end{enumerate}	
 \end{enumerate}
 
 \end{document}
