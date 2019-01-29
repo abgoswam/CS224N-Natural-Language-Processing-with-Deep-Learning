@@ -8,6 +8,7 @@ a2/a2/saved_params_*
 a2/a2/saved_state_*
 a2/a2/assignment2.zip
 a3/a3/results/
+a3/a3/assignment3.zip
 
 # ignore TF model folders
 .idea/
