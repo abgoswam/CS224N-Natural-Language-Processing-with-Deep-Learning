@@ -6,6 +6,9 @@
 \usepackage{amssymb,latexsym,amsmath}     % Standard packages
 \usepackage{graphicx}
 
+\usepackage[english]{babel}
+\usepackage{csquotes}
+		
 %%%%%%%%%%%
 % Margins %
 %%%%%%%%%%%
@@ -33,116 +36,118 @@
 \maketitle
 
 \begin{enumerate}
-	\item Written : Understanding word2vec
+	\item Machine Learning \& Neural Networks
 	
 	\begin{enumerate}
 		
+		% 1 (a) Adam Optimizer
 		\item
-		% (a) question on cross entropy
-		\begin{equation}
-		\sum_{w \in Vocab} y_w \log(\hat{y}_w) = - \log(\hat{y}_o).
-		\end{equation}
-
-		because
 		
-		\begin{equation}
-		y_{i} = 
-\begin{cases}
-    1, & \text{if } i = o\\
-    0, & \text{otherwise}
-\end{cases}.
-		\end{equation}
-			
-		\item
-		% (b) question to compute wrt v_{c}
-		\begin{equation}
-		\frac{\partial 		\boldsymbol{J}_\textsubscript{naive-softmax}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U})}{\partial \boldsymbol{\upsilon}_c} = 
-		- \boldsymbol{u}_{o} + \sum_{w=1}^V \hat{y}_w \boldsymbol{u}_{w}.
-		\end{equation}
-
-		also equivalent to 
-		
-		\begin{equation}
-		\frac{\partial 		\boldsymbol{J}_\textsubscript{naive-softmax}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U})}{\partial \boldsymbol{\upsilon}_c} = 
-		\boldsymbol{U} (\boldsymbol{\hat{y}} - \boldsymbol{y}).
-		\end{equation}
-		
-		\item
-		%  (c) question to compute wrt U
-		\begin{equation}
-		\frac{\partial 		\boldsymbol{J}_\textsubscript{naive-softmax}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U})}{\partial \boldsymbol{U}} = 
-		\boldsymbol{v}_{c} (\boldsymbol{\hat{y}} - \boldsymbol{y})^\top.
-		\end{equation}
-			
-		\item
-		%  (d) derivative of sigmoid. 
-		\begin{equation}
-		\sigma^{\prime}(\boldsymbol{x}) = \sigma(\boldsymbol{x}) (1 - \sigma(\boldsymbol{x}))
-		\end{equation}
-		
-		\item
-		%  (e) derivative of neg sample.
-		\begin{equation}
-		\frac{\partial 		\boldsymbol{J}_\textsubscript{neg-sample}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U})}{\partial \boldsymbol{\upsilon}_c} = 
-		(\sigma(\boldsymbol{u}_{o}^\top \boldsymbol{v}_c) - 1) \boldsymbol{u}_{o} -
-		\sum_{k=1}^{k} (\sigma(- \boldsymbol{u}_{k}^\top \boldsymbol{v}_c) - 1) \boldsymbol{u}_{k}
-		\end{equation}
-
-		\begin{equation}
-		\frac{\partial 		\boldsymbol{J}_\textsubscript{neg-sample}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U})}{\partial \boldsymbol{u}_o} = 
-		(\sigma(\boldsymbol{u}_{o}^\top \boldsymbol{v}_c) - 1) \boldsymbol{v}_{c}.
-		\end{equation}
-		
-		\begin{equation}
-		\frac{\partial 		\boldsymbol{J}_\textsubscript{neg-sample}(\boldsymbol{\upsilon}_c, o, \boldsymbol{U})}{\partial \boldsymbol{u}_k} = 
-		-(\sigma(-\boldsymbol{u}_{k}^\top \boldsymbol{v}_c) - 1) \boldsymbol{v}_{c}.
-		\end{equation}
-		
-		$J_\textsubscript{neg-sample}$ is more efficient to compute than $J_\textsubscript{naive-softmax}$. In $J_\textsubscript{naive-softmax}$ we use softmax to compute the probability of outside word given the center word. In order to compute the probability, we need to normalize over all the words in the vocabulary. This is not efficient especially when the vocabulary size is large.
-		
-		\item
-		%  (f) skip gram.
+		Adam Optimizer.
 		
 		\begin{enumerate}
-			\item 
+				
+			% 1 (a) (i) 
+			\item
 			
-		\begin{equation}
-		\frac{\partial 		\boldsymbol{J}_\textsubscript{skip-gram}(\boldsymbol{\upsilon}_c, w_{t-m},... w_{t+m}, \boldsymbol{U})}{\partial \boldsymbol{U}} = 
-		\sum_{-m \leq j \leq m, j \neq 0} \frac{\partial 		\boldsymbol{J}(\boldsymbol{\upsilon}_c, w_{t+j}, \boldsymbol{U})}{\partial \boldsymbol{U}}.
-		\end{equation}
+			$\boldsymbol{m}$ is rolling average of the gradients. $\theta_1$ is a hyper parameter between 0 and 1. 
+			
+		\begin{align}
+		\boldsymbol{m} \leftarrow \beta_{1} \boldsymbol{m} + (1 - \beta_{1}) \nabla_{\boldsymbol{\theta}} \boldsymbol{J}_\textsubscript{minibatch}(\boldsymbol{\theta}).
+		\end{align}
 		
-      \item
-	
-		\begin{equation}	
-		\frac{\partial 		\boldsymbol{J}_\textsubscript{skip-gram}(\boldsymbol{\upsilon}_c, w_{t-m},... w_{t+m}, \boldsymbol{U})}{\partial \boldsymbol{\upsilon}_{c}} = 
-				\sum_{-m \leq j \leq m, j \neq 0} \frac{\partial 		\boldsymbol{J}(\boldsymbol{\upsilon}_c, w_{t+j}, \boldsymbol{U})}{\partial \boldsymbol{v}_{c}}
-		\end{equation}	
+			The fact that beta1 is set to a high value (0.9 often) suggests that m is changing very little at each step.  This in turn ensures that the  model parameters  do not bounce around when moving towards the local optimum.
+			% 1 (a) (ii) 
+			\item
+			$\boldsymbol{v}$ is the rolling average of the magnitude of the gradients. 
 			
-			\item 
+		\begin{align}
+		\boldsymbol{\theta} \leftarrow \boldsymbol{\theta} - \alpha \bigodot \boldsymbol{m} / \sqrt{\boldsymbol{v}}.
+		\end{align}
+			
+			Since we are dividing by $\sqrt{\boldsymbol{v}}$ it means that the larger  gradients will get smalller updates.   Conversely,  the smaller gradients will get larger updates.  This will help the learning algorithm to move off flat areas.
+			
+		\end{enumerate}
 		
-		\begin{equation}	
-		\frac{\partial 		\boldsymbol{J}_\textsubscript{skip-gram}(\boldsymbol{\upsilon}_c, w_{t-m},... w_{t+m}, \boldsymbol{U})}{\partial \boldsymbol{\upsilon}_{w}} = 0, 
-		\text{when} w \neq c
-		\end{equation}
+		% 1 (b) Dropout		
+		\item
+		
+		Dropout.
+
+		\begin{enumerate}
+		
+			% 1 (b) (i) 
+			\item		
 			
+				$\gamma$ in terms of $p_{drop}$
+				
+			\begin{align}
+			\begin{split}
+				h_i &= \mathbb{E}_{p_{drop}}[\mathbf{h}_{drop}]_{i} \\ 
+							&= \mathbb{E}_{p_{drop}}[\gamma d_{i} h_{i}] \\ 
+							&= p_{drop} (0) + (1 - p_{drop}) \gamma h_i \\ 
+							&= (1 - p_{drop}) \gamma h_i
+			\end{split}
+			\end{align}
+			
+			So, 
+			
+			\begin{align}
+			\gamma = \frac {1} {1 - p_{drop}} \\ 
+			\end{align}
+			
+			% 1 (b) (ii) 
+			\item
+			
+			Dropout is a regularization technique that we want to use during training to prevent overfitting on the training data. 
+
+			At test time, we should not do dropout, else it would result in randomness in predictions. One thing we should do during test time is to scale the predictions appropriately  to account for the expected drop probablity.  
+			
+			Alternatively, we can use \textbf{inverted dropout} so we do the scaling at training time itself, and leave the code untouched during test time. 
+												
     \end{enumerate}
   
 	\end{enumerate}
 
-	\item Coding
-	
-	\begin{figure}
-    \centering
-    \includegraphics{word_vectors}
-    \caption{Word Vectors}
-    \label{fig:word_vectors}
-	\end{figure}
-	
-	In Figure ~\ref{fig:word_vectors} we make the following observations :
+	\item Neural Transition-Based Dependency Parsing
+		
 	\begin{enumerate}
-	\item Semantic similarity e.g. (king, male)  (queen, female)
-	\item Syntactic structure e.g. (man, woman)  (male, female)
-	\item Beverages e.g. (tea, coffee) appear together
+	% 2 (a)
+	\item Table \ref{table:sentencetransitions} shows the sequence of transitions needed for parsing the sentence : \enquote{\textit{I parsed this sentence correctly}}
+		
+\begin{table}[]
+\begin{tabular}{|l|l|l|l|}
+\hline
+Stack                              & Buffer                                     & New dependency                 & Transition \\ \hline
+{[}ROOT{]}                         & {[}I, parsed, this, sentence, correctly{]} &                                & start      \\ \hline
+{[}ROOT, I{]}                      & {[}parsed, this, sentence, correctly{]}    &                                & SHIFT      \\ \hline
+{[}ROOT, I, parsed{]}              & {[}this, sentence, correctly{]}            &                                & SHIFT      \\ \hline
+{[}ROOT, parsed{]}                 & {[}this, sentence, correctly{]}            & parsed-\textgreater{}I         & LEFT-ARC   \\ \hline
+{[}ROOT, parsed, this{]}           & {[}sentence, correctly{]}                  &                                & SHIFT      \\ \hline
+{[}ROOT, parsed, this, sentence{]} & {[}correctly{]}                            &                                & SHIFT      \\ \hline
+{[}ROOT, parsed, sentence{]}       & {[}correctly{]}                            & sentence-\textgreater{}this    & LEFT-ARC   \\ \hline
+{[}ROOT, parsed{]}                 & {[}correctly{]}                            & parsed-\textgreater{}sentence  & RIGHT-ARC  \\ \hline
+{[}ROOT, parsed, correctly{]}      & {[}{]}                                     &                                & SHIFT      \\ \hline
+{[}ROOT, parsed{]}                 & {[}{]}                                     & parsed-\textgreater{}correctly & RIGHT-ARC  \\ \hline
+{[}ROOT{]}                         & {[}{]}                                     & ROOT-\textgreater{}parsed      & RIGHT-ARC  \\ \hline
+\end{tabular}
+\caption{Transitions for sentence \enquote{\textit{I parsed this sentence correctly}}.}
+\label{table:sentencetransitions}
+\end{table}
+	
+	
+	%2 (b)
+	\item A sentence containing $n$ words will be parsed in $2n$ steps.  
+	It is either (a) SHIFT  or (b)  one of $\{LEFT-ARC | RIGHT-ARC\} $
+	% 2 (c)
+	\item Coding exercise
+	% 2 (d)
+	\item Coding exercise
+	% 2 (e)
+	\item Coding exercise
+	% 2 (f)
+	\item Getting wrong.
+	
 	\end{enumerate}
 	
 \end{enumerate}
