@@ -1,0 +1,3 @@
+[submodule "pytorch-examples"]
+	path = pytorch-examples
+	url = https://github.com/jcjohnson/pytorch-examples.git

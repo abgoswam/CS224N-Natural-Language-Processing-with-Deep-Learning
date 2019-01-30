@@ -9,10 +9,6 @@ def show(items, name):
         print(item.value)
 
 
-def test_question():
-    print("abhishek")
-
-
 if __name__ == '__main__':
     item1 = Item(1)
     item2 = Item(2)
