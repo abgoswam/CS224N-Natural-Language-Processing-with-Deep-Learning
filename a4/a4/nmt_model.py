@@ -73,6 +73,36 @@ class NMT(nn.Module):
         ###     Dropout Layer:
         ###         https://pytorch.org/docs/stable/nn.html#torch.nn.Dropout
 
+        self.encoder = torch.nn.LSTM(input_size=self.model_embeddings.embed_size,
+                                     hidden_size=self.hidden_size,
+                                     bias=True,
+                                     bidirectional=True)
+
+        self.decoder = torch.nn.LSTMCell(input_size=self.model_embeddings.embed_size,
+                                         hidden_size=self.hidden_size,
+                                         bias=True)
+
+        self.h_projection = torch.nn.Linear(in_features=2*self.hidden_size,
+                                            out_features=self.hidden_size,
+                                            bias=False)
+
+        self.c_projection = torch.nn.Linear(in_features=2*self.hidden_size,
+                                            out_features=self.hidden_size,
+                                            bias=False)
+
+        self.att_projection = torch.nn.Linear(in_features=self.hidden_size,
+                                              out_features=2*self.hidden_size,
+                                              bias=False)
+
+        self.combined_output_projection = torch.nn.Linear(in_features=self.hidden_size,
+                                                          out_features=3*self.hidden_size,
+                                                          bias=False)
+
+        self.target_vocab_projection = torch.nn.Linear(in_features=len(self.vocab.tgt),
+                                                       out_features=self.hidden_size,
+                                                       bias=False)
+
+        self.dropout = torch.nn.Dropout(p=self.dropout_rate)
 
         ### END YOUR CODE
 
@@ -163,6 +193,24 @@ class NMT(nn.Module):
         ###     Tensor Permute:
         ###         https://pytorch.org/docs/stable/tensors.html#torch.Tensor.permute
 
+        src_len, b = source_padded.shape
+        X = self.model_embeddings.source(source_padded)
+
+        Xpacked = torch.nn.utils.rnn.pack_padded_sequence(X, source_lengths)
+        # h1 = torch.randn(2, b, self.hidden_size)
+        # c1 = torch.randn(2, b, self.hidden_size)
+
+        enc_hiddens, (last_hidden, last_cell) = self.encoder(Xpacked)
+        enc_hiddens, _ = torch.nn.utils.rnn.pad_packed_sequence(enc_hiddens)
+        enc_hiddens = enc_hiddens.permute(1, 0, 2)
+
+        h_cat = torch.cat((last_hidden[1], last_hidden[0]), dim=1)
+        c_cat = torch.cat((last_cell[1], last_cell[0]), dim=1)
+
+        init_decoder_hidden = self.h_projection(h_cat)
+        init_decoder_cell = self.c_projection(c_cat)
+
+        dec_init_state = (init_decoder_hidden, init_decoder_cell)
 
         ### END YOUR CODE
 

@@ -30,6 +30,24 @@ def pad_sents(sents, pad_token):
 
     ### YOUR CODE HERE (~6 Lines)
 
+    max_length = 0
+    for sent in sents:
+        # print(sent, len(sent))
+        if len(sent) > max_length:
+            max_length = len(sent)
+
+    # print(max_length)
+
+    sents_padded = []
+    for sent in sents:
+        # print(sent, len(sent))
+        sent_padded = sent.copy()
+        if len(sent_padded) < max_length:
+            padding_count = max_length - len(sent_padded)
+            padded = [pad_token for _ in range(padding_count)]
+            sent_padded.extend(padded)
+
+        sents_padded.append(sent_padded)
 
     ### END YOUR CODE
 
