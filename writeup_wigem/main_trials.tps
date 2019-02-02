@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1322
-NormalPos.bottom=650
+NormalPos.right=1045
+NormalPos.bottom=452
 Class=LaTeXView
 Document=evaluation.tex
 
 [Frame0_View0,0]
-TopLine=239
-Cursor=9653
+TopLine=456
+Cursor=27456
 
 [Frame1]
 Flags=0
@@ -29,8 +29,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1322
-NormalPos.bottom=650
+NormalPos.right=1045
+NormalPos.bottom=452
 Class=BibTeXView
 Document=sigproc.bib
 
@@ -47,8 +47,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1322
-NormalPos.bottom=650
+NormalPos.right=1045
+NormalPos.bottom=452
 Class=LaTeXView
 Document=discussion.tex
 
@@ -65,8 +65,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1322
-NormalPos.bottom=650
+NormalPos.right=1045
+NormalPos.bottom=452
 Class=LaTeXView
 Document=intro.tex
 
@@ -83,13 +83,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1322
-NormalPos.bottom=650
+NormalPos.right=1045
+NormalPos.bottom=452
 Class=LaTeXView
 Document=gmm.tex
 
 [Frame4_View0,0]
-TopLine=133
+TopLine=157
 Cursor=8594
 
 [Frame5]
@@ -101,8 +101,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1322
-NormalPos.bottom=650
+NormalPos.right=1045
+NormalPos.bottom=452
 Class=LaTeXView
 Document=exp-methods.tex
 
@@ -119,8 +119,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1322
-NormalPos.bottom=650
+NormalPos.right=1045
+NormalPos.bottom=452
 Class=LaTeXView
 Document=em-algorithm.tex
 
@@ -137,8 +137,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1322
-NormalPos.bottom=650
+NormalPos.right=1045
+NormalPos.bottom=452
 Class=LaTeXView
 Document=main_trials.tex
 
@@ -155,8 +155,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1322
-NormalPos.bottom=650
+NormalPos.right=1045
+NormalPos.bottom=452
 Class=LaTeXView
 Document=conclusion.tex
 

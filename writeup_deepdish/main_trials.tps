@@ -11,8 +11,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1066
-NormalPos.bottom=687
+NormalPos.right=1045
+NormalPos.bottom=663
 Class=LaTeXView
 Document=main_trials.tex
 
@@ -29,8 +29,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1066
-NormalPos.bottom=687
+NormalPos.right=1045
+NormalPos.bottom=663
 Class=LaTeXView
 Document=dataset.tex
 
@@ -47,8 +47,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1066
-NormalPos.bottom=687
+NormalPos.right=1045
+NormalPos.bottom=663
 Class=LaTeXView
 Document=intro.tex
 
@@ -65,8 +65,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1066
-NormalPos.bottom=687
+NormalPos.right=1045
+NormalPos.bottom=663
 Class=BibTeXView
 Document=egbib.bib
 
@@ -83,16 +83,34 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1066
-NormalPos.bottom=687
+NormalPos.right=1045
+NormalPos.bottom=663
 Class=LaTeXView
 Document=methods.tex
 
 [Frame4_View0,0]
-TopLine=58
+TopLine=65
 Cursor=3616
 
+[Frame5]
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-1
+MaxPos.y=-1
+NormalPos.left=4
+NormalPos.top=26
+NormalPos.right=1045
+NormalPos.bottom=663
+Class=LaTeXView
+Document=results.tex
+
+[Frame5_View0,0]
+TopLine=4
+Cursor=0
+
 [SessionInfo]
-FrameCount=5
-ActiveFrame=0
+FrameCount=6
+ActiveFrame=4
 

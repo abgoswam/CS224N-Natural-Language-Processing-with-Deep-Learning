@@ -90,6 +90,10 @@ print(b.grad_fn)
 # Because ``out`` contains a single scalar, ``out.backward()`` is
 # equivalent to ``out.backward(torch.tensor(1.))``.
 
+print("x.requires_grad : {0}".format(x.requires_grad))
+print("y.requires_grad : {0}".format(y.requires_grad))
+print("z.requires_grad : {0}".format(z.requires_grad))
+
 out.backward()
 
 ###############################################################
