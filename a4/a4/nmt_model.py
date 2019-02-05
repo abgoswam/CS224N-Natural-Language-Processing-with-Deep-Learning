@@ -204,8 +204,8 @@ class NMT(nn.Module):
         enc_hiddens, _ = torch.nn.utils.rnn.pad_packed_sequence(enc_hiddens)
         enc_hiddens = enc_hiddens.permute(1, 0, 2)
 
-        h_cat = torch.cat((last_hidden[1], last_hidden[0]), dim=1)
-        c_cat = torch.cat((last_cell[1], last_cell[0]), dim=1)
+        h_cat = torch.cat((last_hidden[0], last_hidden[1]), dim=1)
+        c_cat = torch.cat((last_cell[0], last_cell[1]), dim=1)
 
         init_decoder_hidden = self.h_projection(h_cat)
         init_decoder_cell = self.c_projection(c_cat)
