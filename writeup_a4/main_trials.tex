@@ -1,0 +1,257 @@
+\documentclass[]{article}
+
+%%%%%%%%%%%%%%%%%%%
+% Packages/Macros %
+%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb,latexsym,amsmath}     % Standard packages
+\usepackage{graphicx}
+
+\usepackage[english]{babel}
+\usepackage{csquotes}
+		
+%%%%%%%%%%%
+% Margins %
+%%%%%%%%%%%
+\addtolength{\textwidth}{1.0in}
+\addtolength{\textheight}{1.00in}
+\addtolength{\evensidemargin}{-0.75in}
+\addtolength{\oddsidemargin}{-0.75in}
+\addtolength{\topmargin}{-.50in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theorem/Proof Environments %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}
+\newenvironment{proof}{\noindent{\bf Proof:}}{$\hfill \Box$ \vspace{10pt}}  
+
+
+%%%%%%%%%%%%
+% Document %
+%%%%%%%%%%%%
+\begin{document}
+
+\title{CS 224n Assignment 4.}
+\author{Abhishek Goswami.}
+\maketitle
+
+\begin{enumerate}
+	% 1
+	\item Neural Machine Translation with RNNs
+	\begin{enumerate}
+		% 1 (a)
+		\item
+		% 1 (b)
+		\item
+		% 1 (c)
+		\item
+		% 1 (d)
+		\item
+		% 1 (e)
+		\item
+		% 1 (f)
+		\item
+		% 1 (g)
+		\item  
+		enc\_masks
+		\begin{itemize}
+			\item Using enc\_masks we end up setting e\_t to -inf where enc\_masks has 1
+			\item This is required for the attention computation.
+			\item For attention computation, we want to compute the probability distribution over the words in the sentence
+			\item We do not want to include the padded words (that was only an implementation detail)
+			\item By using enc\_masks, we make sure we are computing the softmax for the words in the original sentence
+		\end{itemize}
+		
+		% 1 (h)
+		\item 
+		% 1 (i)
+		\item Corpus BLEU: 22.708192645431552
+		% 1 (j)
+		\item 
+		Attention mechanisms
+		\begin{enumerate}
+			\item Dot product attention
+					\begin{itemize}
+						\item Advantage : Simpler model. Fewer number of parameters.
+						\item Disadvantage : Does not learn from the encoder hidden state
+					\end{itemize}
+			\item Multiplicative attention
+					\begin{itemize}
+						\item Advantage : Tries to learn from the encoder hidden state, by doing a linear projection W\_attProj over the hidden states in the encoder.
+						\item Disadvantage : More parameters. May lead to overfitting. 
+					\end{itemize}
+			\item Additive attention
+					\begin{itemize}
+						\item Advantage : Tries to learn from the encoder hidden state and also the decoder hidden state.  
+						\item Disadvantage : Even more parameters. Prone to overfitting. 
+					\end{itemize}
+		\end{enumerate}
+		
+	\end{enumerate}
+	
+	% 2
+	\item Analyzing NMT Systems
+	\begin{enumerate}
+		% 2 (a) Understanding NMT errors
+		\item
+		Understanding NMT errors
+		
+			\begin{enumerate}
+					\item 
+					\begin{itemize}
+						\item Error : \textit{favorite of my favorites}. Does not make sense.
+						\item Reason : The system is probably getting confused by reference to \enquote{one} favorite. So the NMT system says \enquote{another favorite} followed by \enquote{of my favorites} which does not make sense.
+						\item Fix Suggestion : Add training data for a phrase like \enquote{another favorite of mine}
+					\end{itemize}
+				
+					\item 	
+					\begin{itemize}
+						\item Error : \textit{author for children}. Incorrect meaning.
+						\item Reason : Probably caused by overfitting caused by Multiplicative attention. The NMT system seems to be focussing on \enquote{ninos} (children) and \enquote{escribir} (write) . So it spits out \enquote{author for children} just fine. But lost context of being \enquote{widely read}.
+						\item Fix Suggestion : Try dot product attention to reduce overfitting.
+					\end{itemize}
+				
+					\item 
+					\begin{itemize}
+						\item Error : \textit{unk} word
+						\item Reason : Word not present in the vocabulary 
+						\item Fix Suggestion : Use word segmentation, character-based models or hybrid NMT
+					\end{itemize}
+					
+					\item 
+					\begin{itemize}
+						\item Error : \textit{go back to the apple}
+						\item Reason : Error because of linguistic construct.  \enquote{Apple} literally translates to \enquote{manzana}, however \enquote{around the block} translates to \enquote{alrededor de la manzana} . Too much attention paid to word manzana.
+						\item Fix Suggestion : Combination of reduce overfitting (dot product attention) + more training data for colloquial words like \enquote{manzana}
+					\end{itemize}
+					
+					\item 
+					\begin{itemize}
+						\item Error : \textit{women's room}
+						\item Reason : Based on the context (\enquote{She}) the NMT system used \enquote{women}, instead of \enquote{teachers}. Represents some bias in training data.
+						\item Fix Suggestion : Fix bias in training data especially related to word \enquote{professores}
+					\end{itemize}
+					
+					\item 
+					\begin{itemize}
+						\item Error : \textit{100,000 acres} is incorrect quantification for \textit{100,000 hectareas}
+						\item Reason : 1 hectareas is not same as 1 acres
+						\item Fix Suggestion : When we identify a word as a unit of measure, maybe it is best to keep the word as is in the translation. 
+					\end{itemize}
+					
+		\end{enumerate}
+		
+		% 2 (b) Explore outputs
+		\item
+		Explore outputs
+		
+				\begin{enumerate}
+					\item 
+					\begin{itemize}
+						\item Source Sentence : Si no son las vacunas, qu es?
+						\item Reference Translation  : If it isn't vaccines, what is it?
+						\item NMT Translation : If you're not vaccines, what is it?
+						\item Error : Phrase incorrect \enquote{you're not} instead of \enquote{it isn't}
+						\item Reason : Seems to be a problem with sequence model decoders
+						\item Fix Suggestion :  Maybe a complex model e.g.  Additive attention would have helped.  
+					\end{itemize}
+
+					\item 
+					\begin{itemize}
+						\item Source Sentence : Yo estaba asombrada.
+						\item Reference Translation  : I was in awe.
+						\item NMT Translation : I was [unk]
+						\item Error : Unknown word.
+						\item Reason : Rare and unknown word problem.
+						\item Fix Suggestion :  Use word segmentation, character-based models or hybrid NMT
+					\end{itemize}
+			\end{enumerate}
+	
+		% 2 (c) BLEU 
+		\item
+		BLEU scores		
+				\begin{enumerate}
+					\item 
+					
+					For c1 :
+					
+					\begin{itemize}
+						\item c : 5
+						\item r* : 4
+						\item BP : 1
+						\item p1 : 3/5
+						\item p2 : 2/4
+						\item BLEU : 0.5477225575051662. [np.exp(0.5*np.log(3/5) + 0.5*np.log(2/4))]
+
+					\end{itemize}
+					
+					For c2 :
+					
+					\begin{itemize}
+						\item c : 5
+						\item r* : 4
+						\item BP : 1
+						\item p1 : 4/5
+						\item p2 : 2/4
+						\item BLEU : 0.6324555320336759. [np.exp(0.5*np.log(4/5) + 0.5*np.log(2/4))]
+
+					\end{itemize}
+					
+					As per the BLEU scores, c2 is a better translation. I agree.  c2 makes more sense compared to c1.
+					
+					\item
+					
+					For c1 :
+					
+					\begin{itemize}
+						\item c : 5
+						\item r* : 6
+						\item BP : exp(-1/5)
+						\item p1 : 3/5
+						\item p2 : 2/4
+						\item BLEU : 0.4484373019840029. [np.exp(-1/5) * np.exp(0.5*np.log(3/5) + 0.5*np.log(2/4))]
+
+					\end{itemize}
+					
+					For c2 :
+					
+					\begin{itemize}
+						\item c : 5
+						\item r* : 6
+						\item BP : exp(-1/5)
+						\item p1 : 2/5
+						\item p2 : 1/4
+						\item BLEU : 0.2589053970151336. [np.exp(-1/5) * np.exp(0.5*np.log(2/5) + 0.5*np.log(1/4))]
+
+					\end{itemize}
+					
+					As per the BLEU scores, c1 is a better translation. I disagree.  To me it seems c2 is a better translation.
+					
+					\item
+					
+					The example above shows that evaluation with respect to a single reference can be problematic. 
+					\begin{itemize}
+						\item A particular source sentence can be expressed in several different ways in the target language.
+						\item It makes sense to have several different reference translations. 
+						\item The robust score of a NMT translation must be based on several different reference translations, not just one reference translation.
+					\end{itemize}
+					
+					\item
+					
+					Advantages of BLEU compared to human evaluation.  
+					\begin{itemize}
+						\item Deterministic BLEU scores.  Any score based on human evaluation will tend to vary (based on human judges)
+						\item Ability to scale the evaluation process to millions of translations. Human evaluation does not scale.
+					\end{itemize}
+					
+					Disadvantages of BLEU.  
+					\begin{itemize}
+						\item A good translation may get low BLEU score since BLEU scores are based on n-grams. Human evaluation goes much beyond n-gram counts. 
+						\item no ability to penalize for offensive / bad words etc.  Human evaluation is suitable for penalizing presence of profanity in translations etc. 
+					\end{itemize}
+					
+				\end{enumerate}	
+	\end{enumerate}
+	
+\end{enumerate}
+\end{document}
