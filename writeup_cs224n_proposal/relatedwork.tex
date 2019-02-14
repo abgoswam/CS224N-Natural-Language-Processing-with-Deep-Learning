@@ -1,6 +1,51 @@
-\section{Related Work}
-\label{sec:relatedwork}
+\section{Paper Summary}
+\label{sec:papersummary}
 
-In this section we discuss some related work in the field of using deep learning for question answering tasks.
+In this section we review the paper \textbf{A Thorough Examination of the CNN/Daily Mail Reading Comprehension Task} by Chen {\it et al} \cite{chen2016thorough} et al.
 
-This document is an example of \texttt{natbib} package using in bibliography management. Three items are cited: \textit{The \LaTeX\ Companion} book \cite{latexcompanion}, the Einstein journal paper \citet{einstein}, and the Donald Knuth's website \cite{knuthwebsite}. The \LaTeX\ related items are \cite{latexcompanion,knuthwebsite}. 
+In this paper, the authors look into the task of reading comprehension (RC). Developing AI systems for reading comprehension is a complex task. It involves interpretation of the text and also making complex inferences on it.
+
+\subsection{Problem Statement}
+\label{subsec:problemstatement}
+
+The authors address the following problem : We are given a passage $p$ and a question $q$. From $q$ select one entity ($a$) and replace it with a placeholder. The goal is to infer the missing entity (answer $a$) from all possible entities which appear in the passage. 
+
+\subsection{Dataset}
+\label{subsec:dataset}
+
+For this problem, the authors leverage two data sets \textit{CNN} and \textit{Daily Mail}. They note that these two datasets were previously used by researchers at \textit{DeepMind} \cite{hermann2015teaching} as well, and present a clever automated way of creating supervised data for RC tasks.
+
+\subsection{Objectives}
+\label{subsec:objectives}
+
+The authors set out to achieve the following objectives:
+\begin{enumerate}
+\item \textbf{Understand what level of natural language understanding is needed to do well on the task above.} 
+
+To this end, the authors do a thorough analysis of the two datasets, and do a hand-analysis of a subset of (passage, question) pairs. They provide interesting insights on the level of difficulty presented by these two datasets. The authors also go on to do a thorough diagnosis of what was learned by the trained model and the kind of errors produced by the model.
+
+\item \textbf{Explore the performance of two NLP systems for this task.}
+
+For this the authors present two systems: 
+	\begin{enumerate}
+	\item Entity-Centric Classifier. This is a conventional feature-based classifier.
+	\item Neural Network Classifier. This is a neural network system based on the AttentiveReader model proposed by Hermann et al \cite{hermann2015teaching}
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Evaluation Metrics}
+\label{subsec:evaluationmetrics}
+
+In this paper the authors use accuracy as the evaluation metric. This seems to be reasonable choice for them -- the goal (as defined in Section \ref{subsec:problemstatement}) was to infer the missing entity (answer $a$) that should be used for the placeholder.  It was interesting to note that the feature-based classifier trained on  boosted decision trees \cite{wu2010adapting} did impressively well on both datasets.
+
+\subsection{Reason for choosing this paper}
+\label{subsec:choice}
+
+My reasons for choosing this paper are as follows:
+\begin{enumerate}
+\item In the final project for CS224N, I plan to work on a similar problem -- to build a deep learning question answering systems. This paper also addresses a similar problem, and provided clear explanations of how the authors went about building an end-to-end neural network system based on the \textit{AttentiveReader} model \cite{hermann2015teaching} propsed earlier in literature.
+\item I feel the \textit{AttentiveReader} model used in the paper can serve as a good baseline for the work I plan to do in the final project.
+\item The neural network model described in the paper was extended to build larger end-to-end systems in later work by Chen et al \cite{chen2017reading}. In particular, the model used in the \textit{Document Reader} submodule in \cite{chen2017reading} is an interesting extension of the neural network model used in the paper, extended to select a span of words from the given passage as an answer to the question.
+
+\end{enumerate}
+

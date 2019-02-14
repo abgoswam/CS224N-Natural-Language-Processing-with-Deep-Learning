@@ -1,18 +1,49 @@
 \begin{thebibliography}{1}
 
-\bibitem{einstein}
-A.~Einstein.
-\newblock {Zur Elektrodynamik bewegter K{\"o}rper}. ({German}) [{On} the
-  electrodynamics of moving bodies].
-\newblock {\em Annalen der Physik}, 322(10):891--921, 1905.
+\bibitem{chen2016thorough}
+D.~Chen, J.~Bolton, and C.~D. Manning.
+\newblock A thorough examination of the {CNN/Daily Mail} reading comprehension
+  task.
+\newblock In {\em Association for Computational Linguistics (ACL)}, 2016.
 
-\bibitem{latexcompanion}
-M.~Goossens, F.~Mittelbach, and A.~Samarin.
-\newblock {\em The \LaTeX\ Companion}.
-\newblock Addison-Wesley, Reading, Massachusetts, 1993.
+\bibitem{chen2017reading}
+D.~Chen, A.~Fisch, J.~Weston, and A.~Bordes.
+\newblock Reading {Wikipedia} to answer open-domain questions.
+\newblock In {\em Association for Computational Linguistics (ACL)}, 2017.
 
-\bibitem{knuthwebsite}
-D.~Knuth.
-\newblock Knuth: Computers and typesetting.
+\bibitem{devlin2018bert}
+J.~Devlin, M.-W. Chang, K.~Lee, and K.~Toutanova.
+\newblock Bert: Pre-training of deep bidirectional transformers for language
+  understanding.
+\newblock {\em arXiv preprint arXiv:1810.04805}, 2018.
+
+\bibitem{hermann2015teaching}
+K.~M. Hermann, T.~Kocisky, E.~Grefenstette, L.~Espeholt, W.~Kay, M.~Suleyman,
+  and P.~Blunsom.
+\newblock Teaching machines to read and comprehend.
+\newblock In {\em Advances in Neural Information Processing Systems}, pages
+  1693--1701, 2015.
+
+\bibitem{peters2018deep}
+M.~E. Peters, M.~Neumann, M.~Iyyer, M.~Gardner, C.~Clark, K.~Lee, and
+  L.~Zettlemoyer.
+\newblock Deep contextualized word representations.
+\newblock {\em arXiv preprint arXiv:1802.05365}, 2018.
+
+\bibitem{seo2016bidirectional}
+M.~Seo, A.~Kembhavi, A.~Farhadi, and H.~Hajishirzi.
+\newblock Bidirectional attention flow for machine comprehension.
+\newblock {\em arXiv preprint arXiv:1611.01603}, 2016.
+
+\bibitem{wu2010adapting}
+Q.~Wu, C.~J. Burges, K.~M. Svore, and J.~Gao.
+\newblock Adapting boosting for information retrieval measures.
+\newblock {\em Information Retrieval}, 13(3):254--270, 2010.
+
+\bibitem{yu2018qanet}
+A.~W. Yu, D.~Dohan, M.-T. Luong, R.~Zhao, K.~Chen, M.~Norouzi, and Q.~V. Le.
+\newblock Qanet: Combining local convolution with global self-attention for
+  reading comprehension.
+\newblock {\em arXiv preprint arXiv:1804.09541}, 2018.
 
 \end{thebibliography}

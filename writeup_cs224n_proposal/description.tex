@@ -3,11 +3,48 @@
 
 In this section we lay out the plan for the project.
 
+\subsection{Main goals(s) of the project}
+\label{subsec:projectgoals}
+
+The \textit{question answering} task can be formulated as follows : As input, we are given a paragraph and a question about that paragraph. The output is a span of words from the paragraph that answers the question correctly.
+
+The goal of the project is to build and evaluate question answering systems.  Over the last couple of years there has been a lot of research on question answering and reading comprehension tasks. The systems have grown in complexity over time.
+
+To that end, the goals of the project are as follows:
+
 \begin{enumerate}
-\item \textit{Main goals(s) of the project.} Blah
-\item \textit{NLP task(s) being addressed.} Blah
-\item \textit{Dataset.} Blah
-\item \textit{Neural methods being used.} Blah
-\item \textit{Baselines for evaluation.} Blah
-\item \textit{Evaluation metrics.} Blah
+
+\item Study the difference between `simple' models (e.g. the \textit{AttentiveReader} model \cite{hermann2015teaching} and its variants  \cite{chen2016thorough}, \cite{chen2017reading}) versus more `advanced' techniques proposed recently (e.g. ELMo \cite{peters2018deep} and BERT \cite{devlin2018bert}) . We want to do a thorough evaluation of these systems both from a quantitative and qualitative perspective.
+
+\item Explore ways to combine the best of both worlds so we can improve the state of the art in question answering tasks.
+
+\item As a stretch goal, one of the things we want to explore is how to extend these systems to \textit{generate} answers. We understand the problem of \textit{generating} answers is different from the problem of \textit{selecting} a span of words as an answer. Hence this is a stretch goal. We are not sure if this has been explored before in literature and/or what datasets might be suitable for this task. Any feedback on this idea would be highly appreciated.
+
+
 \end{enumerate}
+
+\subsection{NLP task(s) being addressed}
+\label{subsec:projecttasks}
+
+The project aims to address the question answering task using the SQuAD 2.0 dataset.
+
+\subsection{Dataset}
+\label{subsec:projectdataset}
+
+We plan to use the SQuAD 2.0 dataset for this project.
+
+\subsection{Neural methods being used}
+\label{subsec:projectmethods}
+
+Besides the baseline models mentioned below in Section \ref{subsec:projectbaselines} we plan to explore several neural methods that have been shown to perform well on question answering tasks.
+
+
+\subsection{Baselines for evaluation}
+\label{subsec:projectbaselines}
+
+The de-facto baseline model for the default project is based on BiDAF \cite{seo2016bidirectional} without the character level embedding layer. In particular, the de-facto code implements a BiDAF variant proposed by Yu et al \cite{yu2018qanet}.  Another baseline we want to try out is the \textit{AttentiveReader} model \cite{hermann2015teaching} used successfully within the \textit{Document Reader} submodule of the DrQA system \cite{chen2017reading}
+
+\subsection{Evaluation metrics}
+\label{subsec:projectmetrics}
+
+We will use two metrics: Exact Match (EM) score and F1 score as our evaluation metrics for this project.
