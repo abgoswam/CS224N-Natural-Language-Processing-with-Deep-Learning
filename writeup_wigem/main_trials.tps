@@ -11,13 +11,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1045
-NormalPos.bottom=452
+NormalPos.right=1184
+NormalPos.bottom=560
 Class=LaTeXView
 Document=evaluation.tex
 
 [Frame0_View0,0]
-TopLine=471
+TopLine=449
 Cursor=27456
 
 [Frame1]
@@ -29,8 +29,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1045
-NormalPos.bottom=452
+NormalPos.right=1184
+NormalPos.bottom=560
 Class=BibTeXView
 Document=sigproc.bib
 
@@ -47,8 +47,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1045
-NormalPos.bottom=452
+NormalPos.right=1184
+NormalPos.bottom=560
 Class=LaTeXView
 Document=discussion.tex
 
@@ -65,8 +65,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1045
-NormalPos.bottom=452
+NormalPos.right=1184
+NormalPos.bottom=560
 Class=LaTeXView
 Document=intro.tex
 
@@ -83,13 +83,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1045
-NormalPos.bottom=452
+NormalPos.right=1184
+NormalPos.bottom=560
 Class=LaTeXView
 Document=gmm.tex
 
 [Frame4_View0,0]
-TopLine=157
+TopLine=144
 Cursor=8594
 
 [Frame5]
@@ -101,8 +101,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1045
-NormalPos.bottom=452
+NormalPos.right=1184
+NormalPos.bottom=560
 Class=LaTeXView
 Document=exp-methods.tex
 
@@ -119,8 +119,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1045
-NormalPos.bottom=452
+NormalPos.right=1184
+NormalPos.bottom=560
 Class=LaTeXView
 Document=em-algorithm.tex
 
@@ -137,8 +137,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1045
-NormalPos.bottom=452
+NormalPos.right=1184
+NormalPos.bottom=560
 Class=LaTeXView
 Document=main_trials.tex
 
@@ -155,8 +155,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1045
-NormalPos.bottom=452
+NormalPos.right=1184
+NormalPos.bottom=560
 Class=LaTeXView
 Document=conclusion.tex
 
@@ -164,7 +164,25 @@ Document=conclusion.tex
 TopLine=0
 Cursor=0
 
+[Frame9]
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-1
+MaxPos.y=-1
+NormalPos.left=4
+NormalPos.top=26
+NormalPos.right=1184
+NormalPos.bottom=560
+Class=LaTeXView
+Document=related.tex
+
+[Frame9_View0,0]
+TopLine=4
+Cursor=0
+
 [SessionInfo]
-FrameCount=9
-ActiveFrame=0
+FrameCount=10
+ActiveFrame=9
 

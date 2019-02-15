@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=main_trials.tex
 
 [Frame0_View0,0]
-TopLine=0
-Cursor=8851
+TopLine=121
+Cursor=5107
 
 [SessionInfo]
 FrameCount=1
