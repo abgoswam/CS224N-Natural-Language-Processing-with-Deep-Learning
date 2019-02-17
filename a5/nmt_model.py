@@ -34,7 +34,7 @@ class NMT(nn.Module):
 
         @param embed_size (int): Embedding size (dimensionality)
         @param hidden_size (int): Hidden Size (dimensionality)
-        @param vocab (VocabEntry): Vocabulary object containing src and tgt languages
+        @param vocab (Vocab): Vocabulary object containing src and tgt languages
                               See vocab.py for documentation.
         @param dropout_rate (float): Dropout probability, for attention
         """
@@ -96,7 +96,7 @@ class NMT(nn.Module):
         ###     - Add `target_padded_chars` for character level padded encodings for target
         ###     - Modify calls to encode() and decode() to use the character level encodings
 
- 
+
         ### END YOUR CODE
 
         P = F.log_softmax(self.target_vocab_projection(combined_outputs), dim=-1)
