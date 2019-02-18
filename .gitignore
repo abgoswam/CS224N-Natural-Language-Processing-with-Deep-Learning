@@ -10,6 +10,8 @@ a2/a2/assignment2.zip
 a3/a3/results/
 a3/a3/assignment3.zip
 a4/a4/assignment4.zip
+a5/model.bin
+a5/model.bin.optim
 
 # ignore TF model folders
 .idea/
