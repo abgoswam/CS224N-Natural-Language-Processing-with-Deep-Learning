@@ -27,7 +27,18 @@ class CharDecoder(nn.Module):
         ### Hint: - Use target_vocab.char2id to access the character vocabulary for the target language.
         ###       - Set the padding_idx argument of the embedding matrix.
         ###       - Create a new Embedding layer. Do not reuse embeddings created in Part 1 of this assignment.
-        
+
+        super(CharDecoder, self).__init__()
+
+        self.charDecoder = torch.nn.LSTM(input_size=char_embedding_size, hidden_size=hidden_size)
+
+        self.char_output_projection = torch.nn.Linear(in_features=hidden_size,
+                                                      out_features=len(target_vocab.char2id),
+                                                      bias=True)
+
+        self.decoderCharEmb = nn.Embedding(len(target_vocab.char2id), char_embedding_size, target_vocab.char2id['<pad>'])
+
+        self.target_vocab = target_vocab
 
         ### END YOUR CODE
 
@@ -44,8 +55,22 @@ class CharDecoder(nn.Module):
         """
         ### YOUR CODE HERE for part 2b
         ### TODO - Implement the forward pass of the character decoder.
-        
-        
+
+        # This should be of shape (length, batch, char_embedding_size)
+        X = self.decoderCharEmb(input)
+
+        # output is of shape (length, batch, hidden_size)
+
+        # dec_hidden is tuple of two tensors (h_n, c_n)
+        # h_n (1, batch, hidden_size): tensor containing the hidden state for t = seq_len
+        # c_n (1, batch, hidden_size): tensor containing the cell state for t = seq_len
+
+        output, dec_hidden = self.charDecoder(X, dec_hidden)
+
+        scores = self.char_output_projection(output)
+
+        return scores, dec_hidden
+
         ### END YOUR CODE 
 
 
@@ -63,6 +88,35 @@ class CharDecoder(nn.Module):
         ### Hint: - Make sure padding characters do not contribute to the cross-entropy loss.
         ###       - char_sequence corresponds to the sequence x_1 ... x_{n+1} from the handout (e.g., <START>,m,u,s,i,c,<END>).
 
+        # tensor of shape (length - 1, batch)
+        # we want it this to be our target
+        target = char_sequence[1:]
+
+        # target would be of shape (length - 1)*batch
+        target_CE = target.view(-1)
+
+
+        # tensor of shape (length - 1, batch)
+        # this is our source we want to feed to the RNN
+        source = char_sequence[:-1]
+
+        # scores would be of shape (length - 1, batch, self.vocab_size)
+        # output scores of RNN which reflects what the RNN thinks is output
+        scores, dec_hidden = self.forward(source, dec_hidden)
+
+        # scores_CE would be of shape (N, C)
+        # where
+        # N = (length - 1)*batch
+        # C = self.vocab_size
+        scores_CE = scores.view(-1, len(self.target_vocab.char2id))
+
+        # padding characters should not contribute to the cross-entropy loss.
+        # we want to compute sum (not average) across entire batch
+
+        loss = nn.CrossEntropyLoss(reduction='sum', ignore_index=self.target_vocab.char2id['<pad>'])
+        loss_CE = loss(scores_CE, target_CE)
+
+        return loss_CE
 
         ### END YOUR CODE
 
