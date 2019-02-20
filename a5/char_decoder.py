@@ -93,7 +93,7 @@ class CharDecoder(nn.Module):
         target = char_sequence[1:]
 
         # target would be of shape (length - 1)*batch
-        target_CE = target.view(-1)
+        target_CE = target.contiguous().view(-1)
 
 
         # tensor of shape (length - 1, batch)
@@ -137,7 +137,48 @@ class CharDecoder(nn.Module):
         ###      - Use torch.tensor(..., device=device) to turn a list of character indices into a tensor.
         ###      - We use curly brackets as start-of-word and end-of-word characters. That is, use the character '{' for <START> and '}' for <END>.
         ###        Their indices are self.target_vocab.start_of_word and self.target_vocab.end_of_word, respectively.
-        
-        
+
+        # dec_hidden would be a tuple of two tensors of size (1, batch, hidden_size)
+        dec_hidden = initialStates
+
+        # initialize current_char_input shape (length, batch) . Here length == 1
+        _, batch_size, hidden_size = initialStates[0].shape
+        current_char = [self.target_vocab.start_of_word for _ in range(batch_size)]
+        current_char_tensor = torch.tensor(current_char, device=device)
+
+        # current_char_input shape(length, batch). Here length == 1
+        current_char_input = current_char_tensor.view(1, -1)
+
+        # output_word_stack is of shape (max_length, batch).
+        output_word_stack = None
+
+        for t in range(max_length):
+            # scores is of shape (length, batch, self.vocab_size). Here length == 1
+            scores, dec_hidden = self.forward(current_char_input, dec_hidden)
+
+            softmax = torch.nn.Softmax(dim=-1)
+            probabilities = softmax(scores)  # so probabilities has shape (1, batch, self.vocab_size)
+            current_char_input = probabilities.argmax(dim=-1)  # shape(length, batch). Here length == 1
+
+            if output_word_stack is None:
+                output_word_stack = current_char_input
+            else:
+                output_word_stack = torch.cat((output_word_stack, current_char_input))
+
+        # transpose so we get output_words (batch, max_length).
+        output_word_tensors = output_word_stack.t()
+
+        decodedWords = []
+        for word_tensor in output_word_tensors:
+            word = ''
+            for c_tensor in word_tensor:
+                c_id = c_tensor.item()
+                if c_id == self.target_vocab.end_of_word:
+                    break
+                word += self.target_vocab.id2char[c_id]
+            decodedWords.append(word)
+
+        return decodedWords
+
         ### END YOUR CODE
 

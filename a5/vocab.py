@@ -180,7 +180,10 @@ class VocabEntry(object):
         sents_padded_tensor = torch.tensor(sents_padded, dtype=torch.long, device=device)
 
         # need to make it (max_sentence_length, batch_size, max_word_length)
-        sents_var = sents_padded_tensor.permute(1, 0, 2)
+        # adding .contiguous() otherwise code was failing lin line nmt_model line #128
+
+        sents_var = sents_padded_tensor.permute(1, 0, 2).contiguous()
+
         return sents_var
 
         ### END YOUR CODE
