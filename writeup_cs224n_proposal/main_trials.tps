@@ -17,7 +17,7 @@ Class=LaTeXView
 Document=main_trials.tex
 
 [Frame0_View0,0]
-TopLine=62
+TopLine=47
 Cursor=2471
 
 [Frame1]
@@ -85,7 +85,7 @@ NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1512
 NormalPos.bottom=683
-Class=LaTeXView
+Class=BibTeXView
 Document=sample.bib
 
 [Frame4_View0,0]

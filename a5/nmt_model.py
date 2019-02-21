@@ -139,7 +139,7 @@ class NMT(nn.Module):
     def encode(self, source_padded: torch.Tensor, source_lengths: List[int]) -> Tuple[torch.Tensor, Tuple[torch.Tensor, torch.Tensor]]:
         """ Apply the encoder to source sentences to obtain encoder hidden states.
             Additionally, take the final states of the encoder and project them to obtain initial states for decoder.
-        @param source_padded (Tensor): Tensor of padded source sentences with shape (src_len, b), where
+        @param source_padded (Tensor): Tensor of padded source sentences with shape (src_len, b, max_word_length), where
                                         b = batch_size, src_len = maximum source sentence length. Note that 
                                        these have already been sorted in order of longest to shortest sentence.
         @param source_lengths (List[int]): List of actual lengths for each of the source sentences in the batch
@@ -171,7 +171,7 @@ class NMT(nn.Module):
         @param enc_masks (Tensor): Tensor of sentence masks (b, src_len), where
                                      b = batch size, src_len = maximum source sentence length.
         @param dec_init_state (tuple(Tensor, Tensor)): Initial state and cell for decoder
-        @param target_padded (Tensor): Gold-standard padded target sentences (tgt_len, b), where
+        @param target_padded (Tensor): Gold-standard padded target sentences (tgt_len, b, max_word_length), where
                                        tgt_len = maximum target sentence length, b = batch size. 
         @returns combined_outputs (Tensor): combined output tensor  (tgt_len, b,  h), where
                                         tgt_len = maximum target sentence length, b = batch_size,  h = hidden size

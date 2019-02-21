@@ -13,7 +13,7 @@ elif [ "$1" = "train_local_q1" ]; then
         --valid-niter=100 --max-epoch=101 --no-char-decoder
 elif [ "$1" = "test_local_q1" ]; then
     mkdir -p outputs
-    touch outputs/test_local_outputs.txt
+    touch outputs/test_outputs_local_q1.txt
     python run.py decode model.bin ./en_es_data/test_tiny.es ./en_es_data/test_tiny.en outputs/test_outputs_local_q1.txt \
         --no-char-decoder
 elif [ "$1" = "train_local_q2" ]; then
@@ -22,7 +22,7 @@ elif [ "$1" = "train_local_q2" ]; then
         --max-epoch=201 --valid-niter=100
 elif [ "$1" = "test_local_q2" ]; then
     mkdir -p outputs
-    touch outputs/test_local_outputs.txt
+    touch outputs/test_outputs_local_q2.txt
     python run.py decode model.bin ./en_es_data/test_tiny.es ./en_es_data/test_tiny.en outputs/test_outputs_local_q2.txt 
 elif [ "$1" = "vocab" ]; then
     python vocab.py --train-src=./en_es_data/train_tiny.es --train-tgt=./en_es_data/train_tiny.en \
