@@ -1,0 +1,18 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Machine comprehension (MC) and question answering (QA) tasks have gained significant interest in the past few years, with several end-to-end models showing promising results for multiple datasets. A key factor in recent advancements has been the use of neural attention mechanisms. They fundamental idea behind attention is extract useful signal by exploiting the notion of \textit{matching}. 
+
+Several attention approaches have been proposed in literature. Chen et al \cite{chen2016thorough} propose a \textit{uni-directional} attention mechanism whereby the query is used to attend to the context paragraph. In BiDAF, Seo at al \cite{seo2016bidirectional} introduce \textsl{bi-directional} attention flow to obtain a query-aware context representation. This provides complimentary information from both the context and query. Wang et al \cite{wang2017gated} note that question-aware passage representations have limited knowledge of the context itself. There exists some sort of lexical and syntactic difference between the question and the passage. This motivates them to directly match the question-aware passage representation against itself as a form of \textit{self-matching} attention. 
+
+Another key tenet of the proposed techniques is to use a model to process sequential inputs. This is typically done in the form of an embedding encoder layer. While recurrent neural networks have been the model of choice for this, recent work by Yu et al \cite{yu2018qanet} propose using a convolution and self-attention mechanism instead. 
+
+In this project we explore two novel extensions. First, we observe that most existing models dive straight into the encoding layer, given the sequential inputs. Attention is an afterthought. One problem of such a representation is that it strains the embedding encoder layer, since the rest of the modeling layers are all stacked on top of it. We propose adding a `Base Attention Layer' as a form of self-attention over the raw word and character input embeddings and explore whether that improves model performance. Second, we explore whether we can have a contextual embed layer that uses a combination of recurrent layers and convolution layers. The motivation behind this is to bring the best of both worlds in the contextual embedding space.
+
+ 
+
+
+
+
+
+

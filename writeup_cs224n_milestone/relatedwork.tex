@@ -1,0 +1,8 @@
+\section{Related Work}
+\label{sec:relatedwork}
+
+Machine comprehension (MC) and question answering (QA) tasks have gained significant interest in the past few years. Overall, the models and techniques that work best of these tasks fall into two categories. 
+
+One, techniques that leverage pre-trained contextual embeddings (PCE). Examples of such PCE-based techniques are ELMo \cite{peters2018deep} and BERT \cite{devlin2018bert}. The core idea of such techniques is that in order to represent a piece of text, we should use word embeddings that depend on the context in which the word appears in the text. This is typically achieved by pretraining the weights on a large-scale language modeling dataset, and using the pre-trained weights for the initial model layers.
+
+Secondly, there are the several end-to-end, non-PCE models which have shown promising results. Examples of such techniques are BiDAF \cite{seo2016bidirectional}, R-NET \cite{wang2017gated} and QANet \cite{yu2018qanet}.  

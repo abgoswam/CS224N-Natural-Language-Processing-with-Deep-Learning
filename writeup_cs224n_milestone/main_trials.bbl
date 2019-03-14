@@ -1,0 +1,50 @@
+\begin{thebibliography}{1}
+
+\bibitem{chen2016thorough}
+D.~Chen, J.~Bolton, and C.~D. Manning.
+\newblock A thorough examination of the {CNN/Daily Mail} reading comprehension
+  task.
+\newblock In {\em Association for Computational Linguistics (ACL)}, 2016.
+
+\bibitem{devlin2018bert}
+J.~Devlin, M.-W. Chang, K.~Lee, and K.~Toutanova.
+\newblock Bert: Pre-training of deep bidirectional transformers for language
+  understanding.
+\newblock {\em arXiv preprint arXiv:1810.04805}, 2018.
+
+\bibitem{kim2016character}
+Y.~Kim, Y.~Jernite, D.~Sontag, and A.~M. Rush.
+\newblock Character-aware neural language models.
+\newblock In {\em Thirtieth AAAI Conference on Artificial Intelligence}, 2016.
+
+\bibitem{peters2018deep}
+M.~E. Peters, M.~Neumann, M.~Iyyer, M.~Gardner, C.~Clark, K.~Lee, and
+  L.~Zettlemoyer.
+\newblock Deep contextualized word representations.
+\newblock {\em arXiv preprint arXiv:1802.05365}, 2018.
+
+\bibitem{rajpurkar2018know}
+P.~Rajpurkar, R.~Jia, and P.~Liang.
+\newblock Know what you don't know: Unanswerable questions for squad.
+\newblock {\em arXiv preprint arXiv:1806.03822}, 2018.
+
+\bibitem{seo2016bidirectional}
+M.~Seo, A.~Kembhavi, A.~Farhadi, and H.~Hajishirzi.
+\newblock Bidirectional attention flow for machine comprehension.
+\newblock {\em arXiv preprint arXiv:1611.01603}, 2016.
+
+\bibitem{wang2017gated}
+W.~Wang, N.~Yang, F.~Wei, B.~Chang, and M.~Zhou.
+\newblock Gated self-matching networks for reading comprehension and question
+  answering.
+\newblock In {\em Proceedings of the 55th Annual Meeting of the Association for
+  Computational Linguistics (Volume 1: Long Papers)}, volume~1, pages 189--198,
+  2017.
+
+\bibitem{yu2018qanet}
+A.~W. Yu, D.~Dohan, M.-T. Luong, R.~Zhao, K.~Chen, M.~Norouzi, and Q.~V. Le.
+\newblock Qanet: Combining local convolution with global self-attention for
+  reading comprehension.
+\newblock {\em arXiv preprint arXiv:1804.09541}, 2018.
+
+\end{thebibliography}

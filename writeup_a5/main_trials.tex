@@ -8,7 +8,8 @@
 
 \usepackage[english]{babel}
 \usepackage{csquotes}
-		
+\usepackage[dvipsnames]{xcolor}
+
 %%%%%%%%%%%
 % Margins %
 %%%%%%%%%%%
@@ -41,28 +42,95 @@
 	\begin{enumerate}
 		% 1 (a)
 		\item
+		
+		The embedding size used for character-level embeddings is typically lower than that used for word embeddings. This is because set of characters in a language vocabulary is typically much smaller than the number of words in a language. This provides some intuition for using smaller embedding sizes for char-level embeddings.
+		
 		% 1 (b)
 		\item
+		
+Parameters in the word-based lookup embedding model:		
+\begin{align*}
+V_\textsubscript{word} * e_\textsubscript{word} && \text{word embedding lookup parameters}
+\end{align*}
+
+
+Parameters in the character-based lookup embedding model:
+\begin{align*}
+& (V_\textsubscript{char} * e_\textsubscript{char}) && \text{character embedding lookup parameters} \\
+& + ((e_\textsubscript{word} * e_\textsubscript{char} * k) + e_\textsubscript{word})  && \text{CNN parameters } \\
+& + ((e_\textsubscript{word} * e_\textsubscript{word}) + e_\textsubscript{word}) && \text{Highway parameters } \\
+& + ((e_\textsubscript{word} * e_\textsubscript{word}) + e_\textsubscript{word}) && \text{Highway parameters }
+\end{align*}
+
+		
 		% 1 (c)
 		\item
+		
+		When a 1D convnet computes features for a given window of the input, those features depend on the windows only. Moreover, each filter computes its output features \textit{independent} of the other filters. This means :
+			\begin{enumerate}
+			\item We can have multiple filters, each of which will produce their own activation map.
+			\item Each filter ends up capturing a different  interpretation out of the same input level character embeddings.
+			\end{enumerate}
+		
+		  This can be very powerful, and something the RNN model does not capture. 
+		
 		% 1 (d)
 		\item
+			\begin{enumerate}
+			\item Max Pooling
+				\begin{itemize}
+				\item Advantage : max pool extracts max features. This means max pooling is highly sensitive to the existence of some pattern in the pooled region.
+				
+				\item Disadvantage : A lot of data gets discarded, because we are only taking the max value of the window.
+				\end{itemize}
+			\item Average Pooling
+				\begin{itemize}
+				\item Advantage :The entire data gets used, because we take the average of the values in the window.
+				\item Disadvantage : Since average pooling computes the average over the pooled region, it may end up diluting some strong signal especially if there are much smaller values in the pooled region.
+				
+				\end{itemize}
+			\end{enumerate}
 		% 1 (e)
 		\item
+		(coding)
+		
 		% 1 (f)
 		\item
+		(coding)
+		
 		% 1 (g)		
 		\item
+		(coding)
+		
 		% 1 (h)
 		\item
+		
+		\begin{itemize}
+				\item Verified that input and output have expected shape
+				\item Created a small instance of the highway network, and fed in an input of all 0's. Verified the module returned the expected output.
+				\item Did some tests with incorrect input sizes. Verified they crashed with expected size mismatch errors.
+		\end{itemize}
+		
 		% 1 (i)
 		\item
+		
+		\begin{itemize}
+				\item Verified that input and output have expected shape
+				\item Created a small instance of the cnn network, and fed in an input of all 0's. Verified the module returned the expected output.
+				\item Did some tests with incorrect input sizes. Verified they crashed with expected size mismatch errors.
+		\end{itemize}
+		
 		% 1 (j)
 		\item
+		(coding)
+		
 		% 1 (k)
 		\item
+		(coding)
+		
 		% 1 (l)
 		\item
+		(coding)
 		
 	\end{enumerate}
 	
@@ -71,16 +139,28 @@
 	\begin{enumerate}
 		% 2 (a) 
 		\item
+		(coding)
+		
 		% 2 (b) 
 		\item
+		(coding)
+		
 		% 2 (c) 
 		\item
+		(coding)
+		
 		% 2 (d) 
 		\item
+		(coding)
+		
 		% 2 (e) 
 		\item
+		(coding)
+		
 		% 2 (f) 
 		\item
+		Corpus BLEU: 24.411367086676762
+		
 	\end{enumerate}
 	
 		% 3
@@ -88,11 +168,76 @@
 	\begin{enumerate}
 		% 3 (a) 
 		\item
+		
+		\begin{itemize}
+				\item traducir . present
+				\item traduzco . not present
+				\item traduces . not present
+				\item traduce  . present
+				\item traduzca . not present
+				\item traduzcas. not present
+		\end{itemize}
+		
+		This is a bad thing for word-based NMT system.  
+		For words missing in the source language, the target word produced by a word-based NMT system would most likely be \textless unk \textgreater as well. A character aware NMT system could overcome this problem because whenever the word-level decoder produces \textless unk \textgreater, we run the CharDecoderLSTM to generate a target word one character at a time. This helps us produce a target word, instead of just printing \textless unk \textgreater
+		
 		% 3 (b) 
 		\item
-		% 3 (c) 
-		\item
-	\end{enumerate}
+		
+		\begin{enumerate}
+			\item Word2Vec
+				\begin{itemize}
+				\item financial. economic (0.463)
+				\item neuron . nerve (0.559)
+				\item Francisco. san (0.184)
+				\item naturally . occurring (0.545)
+				\item expectation	. norms (0.627)
+				\end{itemize}
+				
+			\item CharCNN
+				\begin{itemize}
+				\item financial. vertical (0.301)
+				\item neuron . Newton (0.354)
+				\item Francisco. France (0.420)
+				\item naturally . practically (0.302)
+				\item expectation	. exception (0.389)
+				\end{itemize}
+				
+		% 3 (b) iii 
+			\item
+			Word2Vec models \textsl{contextual} similarity. So words which occur nearby each other are seen next to each other e.g. Closest word to \textbf{Francisco} is \textbf{San} , because thre is a city `San Francisco'.
+			
+			CharCNN on the other hand is a submodule of a larger NMT module. CharCNN models convolution operations over character embeddings, so at best we can say it models some form of \textsl{character level} similarity. This is evident from words closest to each other . Both \textbf{financial}, and its closest word \textbf{vetical} have suffix `al' .  \textbf{naturally}, and its closest word \textbf{practically} have suffix `ally' . Words `expectation' and `exception' share almost the sam characters, which shows that CharCNN models words in terms of character level similarity.
+		\end{enumerate}
 	
+	% 3 (c)
+	\item 
+	
+			Explore outputs
+		
+				\begin{enumerate}
+					\item 
+					\begin{itemize}
+						\item Source Sentence : La epifana es que la muerte es parte de la vida.
+						\item Reference Translation  : The epiphany is  that death is a part of life.
+						\item A4 Translation : \textless unk \textgreater is that death is part of life.
+						\item A5 Translation : The epiphany is that death is part of life.						
+						\item Comment : The character-based decoder produced an exact translation in place of \textless unk \textgreater
+					
+					\end{itemize}
+
+					\item 
+					\begin{itemize}
+						\item Source Sentence : Un amigo mo hizo eso -- Richard Bollingbroke.
+						\item Reference Translation  : A friend of mine did that -- Richard Bollingbroke.
+						\item A4 Translation : A friend of mine did that -- Richard \textless unk \textgreater
+						\item A5 Translation : A friend of mine did that -- Richard Bolla.						
+						\item Comment : The character-based decoder produced an incorrect translation in place of \textless unk \textgreater. It uses a different surname for Richard, which might end up referring to a completely different person.
+						
+					\end{itemize}
+			\end{enumerate}
+	
+	\end{enumerate}
+
 \end{enumerate}
 \end{document}

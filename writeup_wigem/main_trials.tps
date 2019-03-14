@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1184
-NormalPos.bottom=560
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
-Document=evaluation.tex
+Document=related.tex
 
 [Frame0_View0,0]
-TopLine=449
-Cursor=27456
+TopLine=0
+Cursor=0
 
 [Frame1]
 Flags=0
@@ -29,13 +29,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1184
-NormalPos.bottom=560
-Class=BibTeXView
-Document=sigproc.bib
+NormalPos.right=943
+NormalPos.bottom=524
+Class=LaTeXView
+Document=evaluation.tex
 
 [Frame1_View0,0]
-TopLine=6
+TopLine=0
 Cursor=0
 
 [Frame2]
@@ -47,10 +47,10 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1184
-NormalPos.bottom=560
-Class=LaTeXView
-Document=discussion.tex
+NormalPos.right=943
+NormalPos.bottom=524
+Class=BibTeXView
+Document=sigproc.bib
 
 [Frame2_View0,0]
 TopLine=0
@@ -65,13 +65,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1184
-NormalPos.bottom=560
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
-Document=intro.tex
+Document=discussion.tex
 
 [Frame3_View0,0]
-TopLine=5
+TopLine=0
 Cursor=0
 
 [Frame4]
@@ -83,14 +83,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1184
-NormalPos.bottom=560
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
-Document=gmm.tex
+Document=intro.tex
 
 [Frame4_View0,0]
-TopLine=144
-Cursor=8594
+TopLine=0
+Cursor=0
 
 [Frame5]
 Flags=0
@@ -101,14 +101,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1184
-NormalPos.bottom=560
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
-Document=exp-methods.tex
+Document=gmm.tex
 
 [Frame5_View0,0]
-TopLine=0
-Cursor=458
+TopLine=26
+Cursor=0
 
 [Frame6]
 Flags=0
@@ -119,14 +119,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1184
-NormalPos.bottom=560
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
-Document=em-algorithm.tex
+Document=exp-methods.tex
 
 [Frame6_View0,0]
-TopLine=20
-Cursor=1993
+TopLine=0
+Cursor=0
 
 [Frame7]
 Flags=0
@@ -137,13 +137,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1184
-NormalPos.bottom=560
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
-Document=main_trials.tex
+Document=em-algorithm.tex
 
 [Frame7_View0,0]
-TopLine=86
+TopLine=0
 Cursor=0
 
 [Frame8]
@@ -155,10 +155,10 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1184
-NormalPos.bottom=560
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
-Document=conclusion.tex
+Document=main_trials.tex
 
 [Frame8_View0,0]
 TopLine=0
@@ -173,16 +173,16 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1184
-NormalPos.bottom=560
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
-Document=related.tex
+Document=conclusion.tex
 
 [Frame9_View0,0]
-TopLine=4
+TopLine=0
 Cursor=0
 
 [SessionInfo]
 FrameCount=10
-ActiveFrame=9
+ActiveFrame=5
 

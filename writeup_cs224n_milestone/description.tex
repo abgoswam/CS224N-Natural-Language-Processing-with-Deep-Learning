@@ -1,0 +1,75 @@
+\section{Project Description}
+\label{sec:projectdescription}
+
+In this section we lay out the plan for the project.
+
+\subsection{Main goals(s) of the project}
+\label{subsec:projectgoals}
+
+The \textit{question answering} task can be formulated as follows : As input, we are given a paragraph and a question about that paragraph. The output is a span of words from the paragraph that answers the question correctly.
+
+The goal of the project is to build and evaluate question answering systems.  Over the last couple of years there has been a lot of research on question answering and reading comprehension tasks. The systems have grown in complexity over time.
+
+To that end, the goals of the project are as follows:
+
+\begin{enumerate}
+
+\item Study the difference between `simple' models (e.g. the \textit{AttentiveReader} model \cite{hermann2015teaching} and its variants  \cite{chen2016thorough}, \cite{chen2017reading}) versus more `advanced' techniques proposed recently (e.g. ELMo \cite{peters2018deep} and BERT \cite{devlin2018bert}) . We want to do a thorough evaluation of these systems both from a quantitative and qualitative perspective.
+
+\item Explore ways to combine the best of both worlds so we can improve the state of the art in question answering tasks.
+
+\end{enumerate}
+
+\subsection{Strech goal}
+\label{subsec:projectstrechgoals}
+
+As a stretch goal, one of the things we want to explore is how to extend these systems to \textit{generate} answers. 
+
+\textit{Answer generation} is a generalization of the \textit{question answering} task and can be defined as follows: Given a paragraph and a question about that paragraph, output a sentence that answers the question correctly. 
+
+\paragraph{Example} The following example shows how answer generation might be helpful.
+
+	\begin{itemize}
+	\item \textit{Paragraph}:  Sam wakes up each morning at 8am and goes to bed by 8pm.  Today Sam followed the same routine. He had breakfast at 9am. After lunch he went to work, and spent the rest of the day at work.
+	\item \textit{Question}: What did Sam do this morning ?
+	\item \textit{Answer}: He woke up at 8am and ate breakfast at 9am.
+	\end{itemize}
+
+\paragraph{Insight} The key insight here is that simply selecting a span of text would not have been able to answer the question completely. We observe that the standard \textit{question answering} task is good for fact based questions which can be answered by selecting a span of text from the given paragraph as an answer. \textit{Answer generation} tasks may be useful for questions like above which are not factoid based or have multiple spans in the paragraph which are needed to answer the question comprehensively.
+
+This is a strech goal for the following reasons:
+	
+	\begin{enumerate}
+	\item We are not sure what datasets might be suitable for this task. 
+	\item What kinds of metrics would be suitable for this task ? Could we use metrics borrowed from Machine Translation e.g. BLEU for this task.
+	\item We are not sure if this has been explored before in literature. Any feedback on this idea would be highly appreciated.
+	\end{enumerate}
+	
+
+\subsection{NLP task(s) being addressed}
+\label{subsec:projecttasks}
+
+The project aims to address the question answering task using the SQuAD 2.0 dataset.
+
+\subsection{Dataset}
+\label{subsec:projectdataset}
+
+We plan to use the SQuAD 2.0 dataset for this project.
+
+\subsection{Neural methods being used}
+\label{subsec:projectmethods}
+
+Besides the baseline models mentioned below in Section \ref{subsec:projectbaselines} we plan to explore several neural methods that have been shown to perform well on question answering tasks.
+
+We want to start out by trying out the \textit{AttentiveReader} model used in systems like DrQA \cite{chen2017reading}. We want to try out state of the art models that use pre-trained contextual embeddings (PCE) aka ELMo \cite{peters2018deep} \& BERT \cite{devlin2018bert}. Also, we want to explore the middle middle ground of non-PCE models such as BiDAF \cite{seo2016bidirectional} and QAnet \cite{yu2018qanet} 
+
+
+\subsection{Baselines for evaluation}
+\label{subsec:projectbaselines}
+
+The de-facto baseline model for the default project is based on BiDAF \cite{seo2016bidirectional} without the character level embedding layer. In particular, the de-facto code implements a BiDAF variant proposed by Yu et al \cite{yu2018qanet}.  Another baseline we want to try out is the \textit{AttentiveReader} model \cite{hermann2015teaching} used successfully within the \textit{Document Reader} submodule of the DrQA system \cite{chen2017reading}
+
+\subsection{Evaluation metrics}
+\label{subsec:projectmetrics}
+
+We will use two metrics: Exact Match (EM) score and F1 score as our evaluation metrics for this project.
