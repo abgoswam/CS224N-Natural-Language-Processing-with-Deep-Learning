@@ -2,15 +2,13 @@
 \BOOKMARK [1][-]{section.2}{Model}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Problem Statement}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{Model Overview}{section.2}% 4
-\BOOKMARK [3][-]{subsubsection.2.2.1}{Base Attentional Model}{subsection.2.2}% 5
-\BOOKMARK [3][-]{subsubsection.2.2.2}{RNN-Conv Contextual Embedding Model}{subsection.2.2}% 6
-\BOOKMARK [1][-]{section.3}{Experiment}{}% 7
-\BOOKMARK [2][-]{subsection.3.1}{Dataset}{section.3}% 8
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Data splits}{subsection.3.1}% 9
-\BOOKMARK [2][-]{subsection.3.2}{Model Details}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.3}{Training Details}{section.3}% 11
-\BOOKMARK [2][-]{subsection.3.4}{Metric}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.5}{Results}{section.3}% 13
-\BOOKMARK [2][-]{subsection.3.6}{Ablations}{section.3}% 14
-\BOOKMARK [1][-]{section.4}{Related Work}{}% 15
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 16
+\BOOKMARK [2][-]{subsection.2.3}{Model Training and Scoring}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Experiment}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Dataset}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Data splits}{subsection.3.1}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Training Details}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Metric Details}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.4}{Results}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.5}{Ablations}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Related Work}{}% 13
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 14

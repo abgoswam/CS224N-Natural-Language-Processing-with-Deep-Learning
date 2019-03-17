@@ -14,7 +14,7 @@ NormalPos.top=26
 NormalPos.right=943
 NormalPos.bottom=524
 Class=LaTeXView
-Document=related.tex
+Document=main_trials.tex
 
 [Frame0_View0,0]
 TopLine=0
@@ -32,7 +32,7 @@ NormalPos.top=26
 NormalPos.right=943
 NormalPos.bottom=524
 Class=LaTeXView
-Document=evaluation.tex
+Document=conclusion.tex
 
 [Frame1_View0,0]
 TopLine=0
@@ -49,8 +49,8 @@ NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=943
 NormalPos.bottom=524
-Class=BibTeXView
-Document=sigproc.bib
+Class=LaTeXView
+Document=related.tex
 
 [Frame2_View0,0]
 TopLine=0
@@ -68,7 +68,7 @@ NormalPos.top=26
 NormalPos.right=943
 NormalPos.bottom=524
 Class=LaTeXView
-Document=discussion.tex
+Document=evaluation.tex
 
 [Frame3_View0,0]
 TopLine=0
@@ -85,8 +85,8 @@ NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=943
 NormalPos.bottom=524
-Class=LaTeXView
-Document=intro.tex
+Class=BibTeXView
+Document=sigproc.bib
 
 [Frame4_View0,0]
 TopLine=0
@@ -104,10 +104,10 @@ NormalPos.top=26
 NormalPos.right=943
 NormalPos.bottom=524
 Class=LaTeXView
-Document=gmm.tex
+Document=discussion.tex
 
 [Frame5_View0,0]
-TopLine=26
+TopLine=0
 Cursor=0
 
 [Frame6]
@@ -122,7 +122,7 @@ NormalPos.top=26
 NormalPos.right=943
 NormalPos.bottom=524
 Class=LaTeXView
-Document=exp-methods.tex
+Document=intro.tex
 
 [Frame6_View0,0]
 TopLine=0
@@ -140,10 +140,10 @@ NormalPos.top=26
 NormalPos.right=943
 NormalPos.bottom=524
 Class=LaTeXView
-Document=em-algorithm.tex
+Document=gmm.tex
 
 [Frame7_View0,0]
-TopLine=0
+TopLine=26
 Cursor=0
 
 [Frame8]
@@ -158,7 +158,7 @@ NormalPos.top=26
 NormalPos.right=943
 NormalPos.bottom=524
 Class=LaTeXView
-Document=main_trials.tex
+Document=exp-methods.tex
 
 [Frame8_View0,0]
 TopLine=0
@@ -176,7 +176,7 @@ NormalPos.top=26
 NormalPos.right=943
 NormalPos.bottom=524
 Class=LaTeXView
-Document=conclusion.tex
+Document=em-algorithm.tex
 
 [Frame9_View0,0]
 TopLine=0
@@ -184,5 +184,5 @@ Cursor=0
 
 [SessionInfo]
 FrameCount=10
-ActiveFrame=5
+ActiveFrame=7
 

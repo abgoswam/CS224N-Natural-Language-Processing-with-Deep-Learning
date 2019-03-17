@@ -24,28 +24,37 @@ To summarize we have the following data splits:
 
 From now on we refer to these splits as the train set, dev set and test set respectively. We will use the train set to train the model. We report the performance metrics on the dev set.
 
-\subsection{Model Details}
-\label{subsec:modeldetails}
-
-$m_{word}$ is set to 16 and is kept fixed throughout the training. ${e_{char}}$ is set to 64.
-
 \subsection{Training Details}
 \label{subsec:trainingdetails}
 
-\subsection{Metric}
-\label{subsec:metric}
+The model architecture used for this task is shown in Figure \ref{fig:modelarchitecture}. 
+
+For the Embedding Layer, $m_{word}$ is set to 16. ${e_{char}}$ and ${e_{word}}$ are set to 64 and 300 respectively. We use one 1D filter for the CNN char embedding with a kernel size of 5. The hidden state $d$ of the model is 100. For the convolutions in the Embedding Encoder Layer, we use a set of 4 stacked CNN layers, each with input/output channels as $2d$ with a kernel size of 1 . We uses dropout as a form of regularization across all the six layers in our model. Table \ref{table:dropoutresults} shows the effect of dropout on our model performance. We use the Adadelta optimizer \cite{zeiler2012adadelta} with a learning rate of 0.5 which is kept fixed. While training we use a batch size of 64. When scoring, $L_{max}$ is set to 15.
+
+We implement our model in Python using PyTorch \cite{pytorch}. The experiments are carried out on a Azure Data Science Virtual Machine (DSVM) \cite{dsvm} which has a NVIDIA Tesla K80 GPU.
+
+\subsection{Metric Details}
+\label{subsec:metricdetails}
 
 We measure performance via two metrics: Exact Match (EM) and the F1 score.
 
 \begin{itemize}
 \item \textbf{Exact Match} is a binary measure (i.e. true/false) of whether the system output matches the ground truth answer exactly.
-
-\item \textbf{F1} is a binary measure (i.e. true/false) of whether the system output matches the ground truth answer exactly.
-
+\item \textbf{F1} is the harmonic mean of precision and recall.
+\item When a question has no answer, both the F1 and EM score are 1 if the model predicts no-answer, and 0 otherwise.
+\item For questions that do have answers, when evaluating on the dev or test sets, we take the maximum F1 and EM scores across the three human-provided answers for that question.
 \end{itemize}
 
 \subsection{Results}
 \label{subsec:results}
+
+\begin{figure*}[h!]
+\centering
+	\includegraphics[width=12cm]{Figs4Paper/F1EM.eps}
+  \caption{Comparison of F1 and EM scores}
+  \label{fig:f1em}
+\end{figure*}
+
 
 \begin{table}[]
 \caption{Comparing our model with the baseline}

@@ -1,4 +1,13 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{dsvm}
+Azure data science virtual machines.
+\newblock
+  https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/.
+
+\bibitem{pytorch}
+Pytorch.
+\newblock https://pytorch.org/.
 
 \bibitem{chen2016thorough}
 D.~Chen, J.~Bolton, and C.~D. Manning.
@@ -17,6 +26,17 @@ Y.~Kim, Y.~Jernite, D.~Sontag, and A.~M. Rush.
 \newblock Character-aware neural language models.
 \newblock In {\em Thirtieth AAAI Conference on Artificial Intelligence}, 2016.
 
+\bibitem{levy2017zero}
+O.~Levy, M.~Seo, E.~Choi, and L.~Zettlemoyer.
+\newblock Zero-shot relation extraction via reading comprehension.
+\newblock {\em arXiv preprint arXiv:1706.04115}, 2017.
+
+\bibitem{pennington2014glove}
+J.~Pennington, R.~Socher, and C.~Manning.
+\newblock Glove: Global vectors for word representation.
+\newblock In {\em Proceedings of the 2014 conference on empirical methods in
+  natural language processing (EMNLP)}, pages 1532--1543, 2014.
+
 \bibitem{peters2018deep}
 M.~E. Peters, M.~Neumann, M.~Iyyer, M.~Gardner, C.~Clark, K.~Lee, and
   L.~Zettlemoyer.
@@ -33,6 +53,11 @@ M.~Seo, A.~Kembhavi, A.~Farhadi, and H.~Hajishirzi.
 \newblock Bidirectional attention flow for machine comprehension.
 \newblock {\em arXiv preprint arXiv:1611.01603}, 2016.
 
+\bibitem{srivastava2015highway}
+R.~K. Srivastava, K.~Greff, and J.~Schmidhuber.
+\newblock Highway networks.
+\newblock {\em arXiv preprint arXiv:1505.00387}, 2015.
+
 \bibitem{wang2017gated}
 W.~Wang, N.~Yang, F.~Wei, B.~Chang, and M.~Zhou.
 \newblock Gated self-matching networks for reading comprehension and question
@@ -46,5 +71,10 @@ A.~W. Yu, D.~Dohan, M.-T. Luong, R.~Zhao, K.~Chen, M.~Norouzi, and Q.~V. Le.
 \newblock Qanet: Combining local convolution with global self-attention for
   reading comprehension.
 \newblock {\em arXiv preprint arXiv:1804.09541}, 2018.
+
+\bibitem{zeiler2012adadelta}
+M.~D. Zeiler.
+\newblock Adadelta: an adaptive learning rate method.
+\newblock {\em arXiv preprint arXiv:1212.5701}, 2012.
 
 \end{thebibliography}
