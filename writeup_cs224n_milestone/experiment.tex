@@ -3,6 +3,15 @@
 
 In this section, we conduct experiments to study the performance of our models. We will benchmark our models on the Stanford Question Answering Dataset (SQuAD) 2.0 \cite{rajpurkar2018know}, considered to be one of the most competitive datasets in QA tasks. We also provide some implementation details for our models and present the main results.
 
+\begin{figure*}[h!]
+\centering
+	\includegraphics[width=12cm]{Figs4Paper/F1EM2.eps}
+  \caption{Comparison of F1 and EM scores while training.}
+  \label{fig:f1em}
+\end{figure*}
+
+
+
 \subsection{Dataset}
 \label{subsec:dataset}
 
@@ -48,31 +57,23 @@ We measure performance via two metrics: Exact Match (EM) and the F1 score.
 \subsection{Results}
 \label{subsec:results}
 
-\begin{figure*}[h!]
-\centering
-	\includegraphics[width=12cm]{Figs4Paper/F1EM.eps}
-  \caption{Comparison of F1 and EM scores}
-  \label{fig:f1em}
-\end{figure*}
-
-
 \begin{table}[]
-\caption{Comparing our model with the baseline}
+\caption{Comparing ECNet with BiDAF}
 \label{table:results}
 \centering
 \begin{tabular}{lll}
 																									& EM    & F1    \\ \hline
 BiDAF with character embedding (baseline)				  & 59.47 & 62.46 \\
-Our Model																					& 62.64 & 66.10 \\ \hline
+ECNet (our model)																	& 63.17 & 66.38 \\ \hline
 
 \end{tabular}
 \end{table}
 
-Table \ref{table:results} shows the comparison between our model and the baseline. As per the original BiDAF model, we include a character-level embedding layer using character-level convnets. This gives us a very strong baseline to compare with.
+Table \ref{table:results} shows the comparison between our model and the baseline. As per the original BiDAF model, we include a character-level embedding layer using character-level convnets. This gives us a very strong baseline to compare with. We see ECNet outperforms BiDAF on both the F1 and EM metrics. Figure \ref{fig:f1em} shows a comparison of the metrics while training the two models.
 
 
-\subsection{Ablations}
-\label{subsec:ablations}
+\subsection{Ablation Study}
+\label{subsec:ablationstudy}
 
 
 \begin{table}[]
@@ -84,13 +85,13 @@ Table \ref{table:results} shows the comparison between our model and the baselin
 No Embedding Attention Layer                                           & 60.93 & 64.34 \\
 No CNN layers inside the Embedding Encoder Layer                       & 59.64 & 63.10 \\
 No character embedding in the Embedding Layer                          & 59.47 & 62.46 \\
-Freezing both the character and word embeddings in the Embedding Layer & 62.19 & 65.39 \\ \hline
+Un-freezing the character and word embeddings in the Embedding Layer 	 & 62.19 & 65.39 \\ \hline
 
 \end{tabular}
 \end{table}
 
 
-Table \ref{table:ablation} shows the performance of the model and its ablations on the SQuAD dev set. Having an Embedding Attention Layer helps model performance. This validates our hypothesis that adding attention layers early in the model stack should help performance. For ablating the effect of the CNN layers, we experiment by removing the CNN layers from the Embedding Encoder Layer. CNN layers prove to be critical with a drop of 3 points on both metrics. As noted by Seo at al \cite{seo2016bidirectional}, having character embeddings in the Embedding Layer contributes towards model performance whereby word-level embeddings represent the semantics of each word as a whole, while char-level embeddings better handle out-of-vocab (OOV) or rare words. Interestingly we also see that freezing the char-level and word-level embeddings gives us slightly lower performance. It seems the model gives slightly better results if we allow the backpropagation to happen all the way through the embedding layer, and the fine-tuned embeddings generalize quite well to unseen data in the dev set. 
+Table \ref{table:ablation} shows the performance of the model and its ablations on the dev set. Having an embedding attention layer helps model performance. This validates our hypothesis that adding attention layers early in the model stack should help performance. For ablating the effect of the CNN layers, we experiment by removing the CNN layers from the embedding encoder layer. CNN layers prove to be critical, with a drop of 3 points on both metrics when absent. Char embeddings in the embedding layer also play a crucial role, whereby word-level embeddings represent the semantics of each word as a whole, while char-level embeddings better handle out-of-vocab (OOV) or rare words. Interestingly we also see that un-freezing the char-level and word-level embeddings gives us slightly lower performance. It seems the model gives slightly worse results if we allow the backpropagation to happen all the way through the embedding layer. This shows the pre-loaded embeddings are quite good, fine-tuning these embeddings do not generalize well to unseen data in the dev set. 
 
 \begin{table}[]
 \caption{Effect of dropoput}
@@ -100,43 +101,43 @@ Table \ref{table:ablation} shows the performance of the model and its ablations 
 																	& EM    & F1    \\ \hline
 No Dropout		   									& 60.41 & 63.46 \\
 Dropout = 0.1    									& 62.06 & 65.39 \\ 
-Dropout = 0.2 (chosen)		  			& 62.64 & 66.10 \\ 
+Dropout = 0.2 (chosen)		  			& 63.17 & 66.38 \\ 
 Dropout = 0.3    									& 59.84 & 63.81 \\ 
 Dropout = 0.4    									& 61.10 & 64.09 \\ \hline
 
 \end{tabular}
 \end{table}
 
-Table \ref{table:ablation} shows the effect of dropout rates. With low dropout rates, the model was overfitting.  High drop-out rates help in preventing overfitting, but lead to lower EM/F1 scores. We settle on 0.2 as the dropout rate since it gave the best results.
+Table \ref{table:ablation} shows the effect of dropout rates. The model overfits with low dropout rates.  High drop-out rates help in preventing overfitting, but lead to lower EM/F1 scores. We settle on 0.2 as the dropout rate since it gives the best results.
 
 % -----------------------------------------------
 %\subsection{Implementation Details}
 %\label{subsec:implementationdetails}
 
-\begin{table}[]
-
-    \caption{Preliminary Results}
-    \label{table:results} 
-    \centering
-		
-\begin{tabular}{|l|l|l|l|l|}
-\hline
-                                                                & \multicolumn{2}{l|}{\textbf{Dev Set}} & \multicolumn{2}{l|}{\textbf{Test Set}} \\ \hline
-                                                                & EM                & F1                & EM                 & F1                \\ \hline
-master                        				                          & 59.25             & 62.28             & 59.47              & 62.46             \\ \hline
-baselinemodel\_selfsimilaritybeforeattention								 		& 58.83             & 62.05             & 57.47              & 60.87             \\ \hline
-baselinemodel\_selfsimilarityafterattention								 			& 59.45             & 62.95             & 59.45              & 62.95             \\ \hline
-conflict\_without\_for\_loops																 		& 55.67             & 59.19             & 55.67              & 59.19             \\ \hline
-embedding\_with\_self\_similarity                               & 59.64             & 63.10             & 59.64              & 63.10             \\ \hline
-embedding\_with\_self\_difference                               & 52.19             & 52.19             & 52.19              & 52.19             \\ \hline
-conv\_rnn\_embed\_layer							                  	        & 60.93             & 64.34             & 60.93              & 64.34             \\ \hline
-embedding\_with\_self\_similarity\_conv\_rnn (0.0)              & 62.19             & 65.26             & 60.41              & 63.46             \\ \hline
-embedding\_with\_self\_similarity\_conv\_rnn (0.1)              & 62.19             & 65.26             & 62.06              & 65.39             \\ \hline
-embedding\_with\_self\_similarity\_conv\_rnn (0.2)              & 62.19             & 65.26             & 62.19              & 65.26             \\ \hline
-embedding\_with\_self\_similarity\_conv\_rnn (0.3)              & 62.19             & 65.26             & 59.84              & 63.18             \\ \hline
-embedding\_with\_self\_similarity\_conv\_rnn (0.4)              & 62.19             & 65.26             & 61.10              & 64.09             \\ \hline
-embedding\_with\_self\_similarity\_conv\_rnn (both unfrozen)    & 62.19             & 65.26             & 62.64              & 66.10             \\ \hline
-\end{tabular}
-		
-\end{table}
+%\begin{table}[]
+%
+    %\caption{Preliminary Results}
+    %\label{table:results} 
+    %\centering
+		%
+%\begin{tabular}{|l|l|l|l|l|}
+%\hline
+                                                                %& \multicolumn{2}{l|}{\textbf{Dev Set}} & \multicolumn{2}{l|}{\textbf{Test Set}} \\ \hline
+                                                                %& EM                & F1                & EM                 & F1                \\ \hline
+%master                        				                          & 59.25             & 62.28             & 59.47              & 62.46             \\ \hline
+%baselinemodel\_selfsimilaritybeforeattention								 		& 58.83             & 62.05             & 57.47              & 60.87             \\ \hline
+%baselinemodel\_selfsimilarityafterattention								 			& 59.45             & 62.95             & 59.45              & 62.95             \\ \hline
+%conflict\_without\_for\_loops																 		& 55.67             & 59.19             & 55.67              & 59.19             \\ \hline
+%embedding\_with\_self\_similarity                               & 59.64             & 63.10             & 59.64              & 63.10             \\ \hline
+%embedding\_with\_self\_difference                               & 52.19             & 52.19             & 52.19              & 52.19             \\ \hline
+%conv\_rnn\_embed\_layer							                  	        & 60.93             & 64.34             & 60.93              & 64.34             \\ \hline
+%embedding\_with\_self\_similarity\_conv\_rnn (0.0)              & 62.19             & 65.26             & 60.41              & 63.46             \\ \hline
+%embedding\_with\_self\_similarity\_conv\_rnn (0.1)              & 62.19             & 65.26             & 62.06              & 65.39             \\ \hline
+%embedding\_with\_self\_similarity\_conv\_rnn (0.2)              & 62.19             & 65.26             & 62.19              & 65.26             \\ \hline
+%embedding\_with\_self\_similarity\_conv\_rnn (0.3)              & 62.19             & 65.26             & 59.84              & 63.18             \\ \hline
+%embedding\_with\_self\_similarity\_conv\_rnn (0.4)              & 62.19             & 65.26             & 61.10              & 64.09             \\ \hline
+%embedding\_with\_self\_similarity\_conv\_rnn (both unfrozen)    & 62.19             & 65.26             & 62.64              & 66.10             \\ \hline
+%\end{tabular}
+		%
+%\end{table}
 

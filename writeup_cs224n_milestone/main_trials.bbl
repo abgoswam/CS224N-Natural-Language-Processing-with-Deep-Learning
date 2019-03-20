@@ -9,6 +9,12 @@ Azure data science virtual machines.
 Pytorch.
 \newblock https://pytorch.org/.
 
+\bibitem{bahdanau2014neural}
+D.~Bahdanau, K.~Cho, and Y.~Bengio.
+\newblock Neural machine translation by jointly learning to align and
+  translate.
+\newblock {\em arXiv preprint arXiv:1409.0473}, 2014.
+
 \bibitem{chen2016thorough}
 D.~Chen, J.~Bolton, and C.~D. Manning.
 \newblock A thorough examination of the {CNN/Daily Mail} reading comprehension
@@ -20,6 +26,18 @@ J.~Devlin, M.-W. Chang, K.~Lee, and K.~Toutanova.
 \newblock Bert: Pre-training of deep bidirectional transformers for language
   understanding.
 \newblock {\em arXiv preprint arXiv:1810.04805}, 2018.
+
+\bibitem{hermann2015teaching}
+K.~M. Hermann, T.~Kocisky, E.~Grefenstette, L.~Espeholt, W.~Kay, M.~Suleyman,
+  and P.~Blunsom.
+\newblock Teaching machines to read and comprehend.
+\newblock In {\em Advances in Neural Information Processing Systems}, pages
+  1693--1701, 2015.
+
+\bibitem{kim2014convolutional}
+Y.~Kim.
+\newblock Convolutional neural networks for sentence classification.
+\newblock {\em arXiv preprint arXiv:1408.5882}, 2014.
 
 \bibitem{kim2016character}
 Y.~Kim, Y.~Jernite, D.~Sontag, and A.~M. Rush.
@@ -57,6 +75,13 @@ M.~Seo, A.~Kembhavi, A.~Farhadi, and H.~Hajishirzi.
 R.~K. Srivastava, K.~Greff, and J.~Schmidhuber.
 \newblock Highway networks.
 \newblock {\em arXiv preprint arXiv:1505.00387}, 2015.
+
+\bibitem{vaswani2017attention}
+A.~Vaswani, N.~Shazeer, N.~Parmar, J.~Uszkoreit, L.~Jones, A.~N. Gomez,
+  {\L}.~Kaiser, and I.~Polosukhin.
+\newblock Attention is all you need.
+\newblock In {\em Advances in Neural Information Processing Systems}, pages
+  5998--6008, 2017.
 
 \bibitem{wang2017gated}
 W.~Wang, N.~Yang, F.~Wei, B.~Chang, and M.~Zhou.

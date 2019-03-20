@@ -1,4 +1,5 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-So far we have seen that character-level word embeddings help improve the baseline model. As next step we plan to implement the Base Attentional Model (Section \ref{subsubsec:baseattentionalmodel}) and the RNN-Conv Contextual Embedding Model (Section \ref{subsubsec:rnnconvcontextualembeddingmodel})
+In this paper we propose ECNet, a hierarchical model for machine comprehension, with focus on early attention and local convolution. The goal is to use attention early in the modeling stack, and to capture local interactions using convolution layers. On the SQuAD 2.0 dataset, ECNet outperforms the BiDAF \cite{seo2016bidirectional} model proposed recently in literature.  Ablation analyses demonstrate the effect of both the novelties proposed in the model. Future work involves extending ECNet to incorporate pre-trained contextual embeddings (PCE) in the embedding layer. 
+

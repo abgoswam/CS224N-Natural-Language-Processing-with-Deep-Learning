@@ -32,7 +32,7 @@
 \usepackage{amsfonts,amsmath,amssymb,amsthm}
 \usepackage{bm,nicefrac}
 
-\title{Project Milestone}
+\title{ECNet: Early Attention and Local Convolution for Machine Comprehension}
 
 % The \author macro works with any number of authors. There are two commands
 % used to separate the names and addresses of multiple authors: \And and \AND.
@@ -83,7 +83,9 @@
 \maketitle
 
 \begin{abstract}
-  This document details the progress made towards the project milestone of Course CS224n, Winter 2019.
+
+Current state-of-the-art machine comprehension models have two common tenets. One, use of an embedding encoder layer over the  input embeddings to exploit contextual cues from surrounding words. Two, use of neural attention mechanisms over the context and query to exploit the notion of matching. In this paper we propose ECNet, a hierarchical model for machine comprehension, which amplifies existing models by adding early attention and local convolution. It uses self-attention over the input embeddings as a form of early attention. For the embedding encoder layer, it models both sequential and local interactions between words, using recurrent and convolution layers respectively.  On the SQuAD 2.0 dataset, ECNet outperforms the BiDAF model proposed recently in literature
+
 \end{abstract}
 
 \input{introduction}
