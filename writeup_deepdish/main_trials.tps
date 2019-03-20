@@ -11,8 +11,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1239
-NormalPos.bottom=597
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
 Document=main_trials.tex
 
@@ -29,8 +29,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1239
-NormalPos.bottom=597
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
 Document=dataset.tex
 
@@ -47,14 +47,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1239
-NormalPos.bottom=597
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
 Document=intro.tex
 
 [Frame2_View0,0]
-TopLine=7
-Cursor=446
+TopLine=14
+Cursor=1033
 
 [Frame3]
 Flags=0
@@ -65,14 +65,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1239
-NormalPos.bottom=597
+NormalPos.right=943
+NormalPos.bottom=524
 Class=BibTeXView
 Document=egbib.bib
 
 [Frame3_View0,0]
-TopLine=119
-Cursor=206
+TopLine=0
+Cursor=137
 
 [Frame4]
 Flags=0
@@ -83,8 +83,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1239
-NormalPos.bottom=597
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
 Document=methods.tex
 
@@ -101,13 +101,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1239
-NormalPos.bottom=597
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
 Document=results.tex
 
 [Frame5_View0,0]
-TopLine=74
+TopLine=83
 Cursor=4574
 
 [Frame6]
@@ -119,8 +119,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1239
-NormalPos.bottom=597
+NormalPos.right=943
+NormalPos.bottom=524
 Class=LaTeXView
 Document=related.tex
 
@@ -130,5 +130,5 @@ Cursor=918
 
 [SessionInfo]
 FrameCount=7
-ActiveFrame=0
+ActiveFrame=2
 

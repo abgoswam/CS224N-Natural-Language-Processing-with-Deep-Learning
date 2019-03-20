@@ -84,7 +84,7 @@
 
 \begin{abstract}
 
-Current state-of-the-art machine comprehension models have two common tenets. One, use of an embedding encoder layer over the  input embeddings to exploit contextual cues from surrounding words. Two, use of neural attention mechanisms over the context and query to exploit the notion of matching. In this paper we propose ECNet, a hierarchical model for machine comprehension, which amplifies existing models by adding early attention and local convolution. It uses self-attention over the input embeddings as a form of early attention. For the embedding encoder layer, it models both sequential and local interactions between words, using recurrent and convolution layers respectively.  On the SQuAD 2.0 dataset, ECNet outperforms the BiDAF model proposed recently in literature
+Current state-of-the-art machine comprehension models have some common tenets. One, the use of an embedding encoder layer to exploit contextual cues from surrounding words. Two, the use of neural attention mechanisms to exploit matching cues between the context and the query. In this paper we propose ECNet, a hierarchical model for machine comprehension, which amplifies existing models by adding early attention and local convolution. It uses self-attention over the input embeddings as a form of early attention. For the embedding encoder layer, ECNet models both sequential and local interactions between words, using recurrent and convolution layers respectively and combining them.  On the SQuAD 2.0 dataset, ECNet outperforms the BiDAF model proposed recently in literature.
 
 \end{abstract}
 

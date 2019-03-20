@@ -11,8 +11,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=943
-NormalPos.bottom=524
+NormalPos.right=1463
+NormalPos.bottom=796
 Class=LaTeXView
 Document=main_trials.tex
 
@@ -29,8 +29,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=943
-NormalPos.bottom=524
+NormalPos.right=1463
+NormalPos.bottom=796
 Class=LaTeXView
 Document=conclusion.tex
 
@@ -47,8 +47,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=943
-NormalPos.bottom=524
+NormalPos.right=1463
+NormalPos.bottom=796
 Class=LaTeXView
 Document=related.tex
 
@@ -65,13 +65,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=943
-NormalPos.bottom=524
+NormalPos.right=1463
+NormalPos.bottom=796
 Class=LaTeXView
 Document=evaluation.tex
 
 [Frame3_View0,0]
-TopLine=0
+TopLine=38
 Cursor=0
 
 [Frame4]
@@ -83,8 +83,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=943
-NormalPos.bottom=524
+NormalPos.right=1463
+NormalPos.bottom=796
 Class=BibTeXView
 Document=sigproc.bib
 
@@ -101,8 +101,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=943
-NormalPos.bottom=524
+NormalPos.right=1463
+NormalPos.bottom=796
 Class=LaTeXView
 Document=discussion.tex
 
@@ -119,8 +119,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=943
-NormalPos.bottom=524
+NormalPos.right=1463
+NormalPos.bottom=796
 Class=LaTeXView
 Document=intro.tex
 
@@ -137,13 +137,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=943
-NormalPos.bottom=524
+NormalPos.right=1463
+NormalPos.bottom=796
 Class=LaTeXView
 Document=gmm.tex
 
 [Frame7_View0,0]
-TopLine=26
+TopLine=49
 Cursor=0
 
 [Frame8]
@@ -155,8 +155,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=943
-NormalPos.bottom=524
+NormalPos.right=1463
+NormalPos.bottom=796
 Class=LaTeXView
 Document=exp-methods.tex
 
@@ -173,8 +173,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=943
-NormalPos.bottom=524
+NormalPos.right=1463
+NormalPos.bottom=796
 Class=LaTeXView
 Document=em-algorithm.tex
 
@@ -184,5 +184,5 @@ Cursor=0
 
 [SessionInfo]
 FrameCount=10
-ActiveFrame=7
+ActiveFrame=3
 
